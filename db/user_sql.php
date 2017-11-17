@@ -3,7 +3,20 @@
 include('dataBase.php');
 
 /*
-Pull all users
+
+users can:
+
+- User will receive an email once they register 
+- Add Users
+- Deactivate Users
+- Manage Users
+
+
+*/
+
+
+/*
+Get All Users
 */
 function sql_getUsers(){
 
@@ -14,12 +27,5 @@ function sql_getUsers(){
 
     return $users;
 }
-
-/*
-Check if user exists in db
-*/
-
-
-
 
 ?>

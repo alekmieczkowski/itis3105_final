@@ -6,6 +6,10 @@ require_once("session.php");
 if($current_dir == "admin"){
     #admin section
     $test = "Hello";
+
+    //include sql stuff for admin
+    include("db/admin_sql.php");
+    
 }
 else if($current_dir == "user"){
     #user section
