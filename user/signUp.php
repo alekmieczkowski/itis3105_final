@@ -14,8 +14,25 @@ include("../header.php");
 
 if (isset($_POST['fName']))
 {
+    if ($_POST['password']!=$_POST['confirmPassword'])
+    {
+        echo '<html> User name and confirm user name do not match</html>';
 
-    signUp();
+    }
+    elseif ($_POST['age']<18)
+    {
+        echo '<html> Age must be above 18</html>';
+    }
+    else
+    {
+
+        signUp();
+
+    }
+
+
+
+
 }
 
 
@@ -33,9 +50,9 @@ if (isset($_POST['fName']))
     <input type="text" placeholder="Confirm Password" name="confirmPassword"required><br>
     <input type="text" placeholder="Age" name="age"required><br>
     <input type="text" placeholder="Phone Number" name="phoneNumber"required><br>
-    <input type="text" placeholder="Email Address" name="email"required><br>
-    <input type="radio" name="role" value="Admin"required>Admin
-    <input type="radio" name="role" value="User"required>User<br>
+    <input type="email" placeholder="Email Address" name="email"required><br>
+    <input type="radio" name="role" value="1"required>Admin
+    <input type="radio" name="role" value="0"required>User<br>
     <input type="submit" value="Sign Up">
 
 
