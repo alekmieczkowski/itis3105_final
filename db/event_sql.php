@@ -40,6 +40,75 @@ function sql_delEvent($eventID){
     return true;
 }
 
+/*
+Register for event
+*/
+
+function sql_registerEvent($userID, $eventID){
+    $db = db::getInstance();
+    $sql = "Insert into reg_activities (userID, regID) VALUES(".$userID.",".$eventID.")";
+    $stm=$db->prepare($sql);
+    $stm->execute();
+
+    return true;
+}
+
+/*
+Unregister for event
+*/
+
+function sql_unregisterEvent($regID){
+    $db = db::getInstance();
+    $sql = "Delete from reg_activities where regID=".$regID;
+    $stm=$db->prepare($sql);
+    $stm->execute();
+
+    return true;
+}
+
+/*
+Get All registered Events
+*/
+function sql_getRegisteredEvents(){
+
+    $db = db::getInstance();
+    $sql = "Select * from reg_activities";
+    $stm=$db->prepare($sql);
+    $stm->execute();
+    $events=$stm->fetchAll();
+
+    return $events;
+
+}
+
+/*
+Get Registered Events by User ID
+*/
+function sql_getUserEvents($userID){
+    
+    $db = db::getInstance();
+    $sql = "Select * from reg_activities where userID=".$userID;
+    $stm=$db->prepare($sql);
+    $stm->execute();
+    $events=$stm->fetchAll();
+
+    return $events;
+
+}
+
+/*
+Get all dates for certain event, and order by date
+*/
+function sql_getSameEvents($eventName){
+    $db = db::getInstance();
+    $sql = "Select * from activities where a_name=".$eventName."ORDER BY a_date";
+    $stm=$db->prepare($sql);
+    $stm->execute();
+    $events=$stm->fetchAll();
+
+    return $events;
+}
+
 
 
 
