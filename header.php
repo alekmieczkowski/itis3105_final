@@ -12,10 +12,5 @@ else if($current_dir == "user"){
     $test = "Hello";
 }
 
-
-
-
-
-
 ?>
 
