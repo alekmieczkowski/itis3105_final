@@ -1,21 +1,19 @@
 <?php
-//$current_dir = basename(dirname(__FILE__));
+
 /**
  * Created by PhpStorm.
  * User: Mohamed
  * Date: 11/16/2017
  * Time: 7:19 PM
  */
-
-//require_once ('../header.php');
-require_once ('../db/dataBase.php');
+$current_dir = basename(dirname(__FILE__));
+require_once ('../header.php');
 
 if (isset($_POST['username'])&&isset($_POST['password']))
 {
 
-    $stm=$dbs->prepare("select * from users");
-    $stm->execute();
-    $users=$stm->fetchAll();
+   //users
+   $users = sql_getUsers();
 
 
     foreach ($users  as $user)

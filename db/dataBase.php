@@ -5,29 +5,41 @@
  * Date: 9/29/2017
  * Time: 5:38 PM
  */
-$dsn='mysql:host=localhost;dbname=summer_camp';
-$username='root';
-$password='';
 
-try {
+class db{
+    protected $dsn='mysql:host=localhost;dbname=summer_camp';
+    protected $username='root';
+    protected $password='';
 
+    private $_db;
+    private $_instance;
 
-    $dbs = new PDO($dsn, $username, $password);
+    public static function getInstance()
+    {
+        static $instance = null;
 
-    $dbs->setAttribute(PDO:: ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbs->setAttribute(PDO:: ATTR_EMULATE_PREPARES,false);
+        if (is_null($instance)) {
+            $instance = new db();
+        }
 
+        return $instance;
+    }
 
+    public function __construct() {
+        $this->_db = new PDO($this->dsn, $this->username, $this->password);
+        $this->_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
 
+    public function query($sql) {
+        return $this->_db->query($sql);
+    }
 
+    public function prepare($sql){
+        return $this->_db->prepare($sql);
+    }
+
+    
 }
 
-catch (PDOException $exceptionex)
-{
-    $error=$exceptionex->getMessage();
-
-    echo "database name is incorrect";
-
-}
 ?>
 
