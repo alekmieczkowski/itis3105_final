@@ -1,0 +1,12 @@
+
+//Adds all changed files to local git
+git add . 
+
+//commits all changes to local git branch
+git commit -m "first commit"
+
+//adds origin so when you push it knows where to send changes (YOU ONLY HAVE TO DO THIS ONCE)
+git remote add origin https://github.com/amieczko/itis3105_final.git
+
+//pushes all changes to master branch up on github
+git push -u origin master
