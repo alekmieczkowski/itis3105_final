@@ -1,3 +1,4 @@
 <?php
-echo "WE have liftoff";
+    //redirect
+    header("Location: site/index.php");
 ?>
