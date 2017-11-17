@@ -6,40 +6,27 @@
  * Time: 7:19 PM
  */
 
-require_once ('../db/dataBase.php');
+$current_dir = basename(dirname(__FILE__));
+include("../header.php");
 
-if (isset($_POST['firstName']))
+
+
+
+if (isset($_POST['fName']))
 {
-    if ($_POST['password']==$_POST['confirmPassword']) {
 
-
-        $stm1 = $dbs->prepare("insert into users (username, f_name, l_name,password,email,phone, age, isAdmin)
-VALUES (?,?,?,?,?,?,?,?)");
-        $stm1->bindValue(1, $_POST['userName']);
-        $stm1->bindValue(2, $_POST['fName']);
-        $stm1->bindValue(3, $_POST['lName']);
-        $stm1->bindValue(4, $_POST['password']);
-        $stm1->bindValue(5, $_POST['email']);
-        $stm1->bindValue(6, $_POST['phoneNumber']);
-        $stm1->bindValue(7, $_POST['age']);
-        $stm1->bindValue(8, $_POST['role']);
-
-        $stm1->execute();
-        $stm1->closeCursor();
-
-        echo "wow";
-    }
-    else
-    {
-
-    }
+    signUp();
 }
 
 
 ?>
 
+
+<html>
+
+
 <form action="" method="post">
-    <input type="text" placeholder="First Name" name="ftName" required><br>
+    <input type="text" placeholder="First Name" name="fName" required><br>
     <input type="text" placeholder="Last Name" name="lName" required><br>
     <input type="text" placeholder="User Name" name="userName"required><br>
     <input type="text" placeholder="Password" name="password"required><br>
@@ -53,3 +40,5 @@ VALUES (?,?,?,?,?,?,?,?)");
 
 
 </form>
+
+</html>
