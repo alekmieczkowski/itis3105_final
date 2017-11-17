@@ -8,7 +8,7 @@
  */
 
 //redirect to site/index.php
-Header("Location: site/index.php");
+Header("Location: site/home.php");
 
 ?>
 
