@@ -1,12 +1,34 @@
 
-//Adds all changed files to local git
+
+
+FIRST TIME SETUP:
+
+//1) Adds all changed files to local git
 git add . 
 
-//commits all changes to local git branch
+//2) commits all changes to local git branch
 git commit -m "first commit"
 
-//adds origin so when you push it knows where to send changes (YOU ONLY HAVE TO DO THIS ONCE)
+//3) adds origin so when you push it knows where to send changes (YOU ONLY HAVE TO DO THIS ONCE)
 git remote add origin https://github.com/amieczko/itis3105_final.git
 
-//pushes all changes to master branch up on github
+//4) sets up push command and pushes all changes to online github (YOU ONLY HAVE TO DO THIS ONCE)
 git push -u origin master
+
+
+
+
+NORMAL USAGE AFTER FIRST TIME SETUP:
+
+//after you have everything setup, use these commands to add changes, add commmit message, and push changes to github
+
+//1) Adds all changed files to local git
+git add . 
+
+//2) commits all changes to local git branch
+git commit -m "first commit"
+
+//3)pushes all changes to github
+git push
+
+
