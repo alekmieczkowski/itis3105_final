@@ -9,7 +9,9 @@ if($current_dir == "admin"){
 }
 else if($current_dir == "user"){
     #user section
-    $test = "Hello";
+    
+    //include sql stuff for user
+    include("db/user_sql.php");
 }
 
 ?>
