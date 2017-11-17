@@ -12,7 +12,16 @@
 
 <html>
 <form method="post">
-    <input type="text" >
+    <input type="text" placeholder="Username" ><br>
+
+
+
+    <input type="text" placeholder="Password" ><br>
+
+    <input type="submit" value="Login"><br>
+    <input type="checkbox" >Remember Me
 </form>
+
+
 </html>
 
