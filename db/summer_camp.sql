@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2017 at 02:08 AM
+-- Generation Time: Nov 17, 2017 at 02:37 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.0.21
 
@@ -73,6 +73,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userID`, `username`, `f_name`, `l_name`, `password`, `email`, `phone`, `age`, `isAdmin`) VALUES
+(1, 'admin', 'fadmin', 'ladmin', '123', 'admin@admin.com', 1234567890, 21, 1),
+(2, 'user', 'fuser', 'luser', '123', 'user@user.com', 987654321, 27, 0);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -87,6 +95,7 @@ ALTER TABLE `activities`
 --
 ALTER TABLE `reg_activities`
   ADD PRIMARY KEY (`regID`),
+  ADD KEY `actID` (`actID`),
   ADD KEY `userID` (`userID`);
 
 --
@@ -101,10 +110,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `activities`
+--
+ALTER TABLE `activities`
+  MODIFY `activityID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `reg_activities`
 --
 ALTER TABLE `reg_activities`
   MODIFY `regID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -113,7 +132,7 @@ ALTER TABLE `reg_activities`
 -- Constraints for table `reg_activities`
 --
 ALTER TABLE `reg_activities`
-  ADD CONSTRAINT `actID` FOREIGN KEY (`regID`) REFERENCES `activities` (`activityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `actID` FOREIGN KEY (`actID`) REFERENCES `activities` (`activityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `userID` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
