@@ -26,7 +26,7 @@ if (isset($_POST['fName']))
     else
     {
 
-        signUp();
+        sql_userSignup();
 
     }
 

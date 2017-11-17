@@ -28,7 +28,7 @@ function sql_getUsers(){
     return $users;
 }
 
-function signUp()
+function sql_userSignup()
 {
     $db = db::getInstance();
     $stm1 = $db->prepare("insert into users (username, f_name, l_name,password,email,phone, age, isAdmin)
