@@ -1,3 +1,1 @@
-<?php
-echo "WE have liftoff";
-?>
+<p> Site homepage!</p>
