@@ -41,9 +41,9 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
 
 
-    <input type="text" name="password" placeholder="Password" ><br>
+    <input type="text" name="password" placeholder="Password" required ><br>
 
-    <input type="submit" value="Login"><br>
+    <input type="submit" value="Login" required><br>
     <input type="checkbox" >Remember Me
 </form>
 
