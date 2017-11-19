@@ -28,10 +28,8 @@ if (isset($_POST['fName']))
 
 
 ?>
-
-<div class="container-fluid">
-    
-</div>
+<!--particles.js-->
+<!--<div id="particles-js" style="z-index:-100!important"></div>-->
 
 <div class="login-page form-login">
     <div class="container-fluid form form-login">
@@ -46,19 +44,19 @@ if (isset($_POST['fName']))
         <!--Sign up-->
         <form class="register-form">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-md-6 col-xs-12 .visible-sm-block, hidden-sm">
                     <input type="text" placeholder="First Name" name="fName" required><br>
                     <input type="text" placeholder="Last Name" name="lName" required><br>
                     <input type="text" placeholder="User Name" name="userName"required><br>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-md-6 col-xs-12">
                     <input type="text" placeholder="Password" name="password"required><br>
                     <input type="text" placeholder="Confirm Password" name="confirmPassword"required><br>
                     <input type="text" placeholder="Age" name="age"required><br>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-md-6 col-xs-12">
                     <input type="text" placeholder="Phone Number" name="phoneNumber"required><br>
                     <label  class="control control--radio">Admin
                         <input type="checkbox" name="role" id="check-admin" value="1" required>

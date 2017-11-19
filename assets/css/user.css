@@ -16,6 +16,9 @@
 
 
 }
+
+
+
 .logo-header{
     max-width:300px;
 }
@@ -27,6 +30,13 @@
   .form-login{
       width:360px;
   }
+
+  @media only screen and (max-width: 768px) {
+    form-login {
+        b width:360px;
+    }
+}
+
 
   .form {
     position: relative;

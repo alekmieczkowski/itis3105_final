@@ -4,10 +4,12 @@ $('.message a').click(function(){
     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 
     //check state of form width, and adjust based on current width
-    if( $(".form-login").css('width') == '700px')
-        $(".form-login").animate({width: "360px"}, "slow");
-    else
-        $(".form-login").animate({width: "700px"}, "slow");
+    if($(document).width() > 768){
+        if( $(".form-login").css('width') == '700px')
+            $(".form-login").animate({width: "360px"}, "slow");
+        else
+            $(".form-login").animate({width: "700px"}, "slow");
+    }
 
     //$('.login-page').removeClass('form-login').addClass('form-register');
 
@@ -22,3 +24,12 @@ $('.message a').click(function(){
  $('#check-user').click(function(){
     $('#check-admin').prop('checked', false);
  });
+
+
+
+
+
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    particlesJS.load('particles-js', '../assets/js/particlesjs-config.json', function() {
+        console.log('callback - particles.js config loaded');
+    });
