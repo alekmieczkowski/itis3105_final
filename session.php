@@ -16,7 +16,8 @@ if(isset($_SESSION['fname'])&& !empty($_SESSION['fname'])) {
 #session disconnect
 function session_disconnect(){
     session_destroy();
-    header("Location: ../login.php");
+    //refresh page
+    header("Refresh:0");
 }
 
 #run disconnect

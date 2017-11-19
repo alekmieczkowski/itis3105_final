@@ -4,4 +4,34 @@ body{
 nav{
     background-color: rgba(0,0,0,0)!important;
     border:none!important;
+    font-size:40px;
+}
+
+.row-header{
+    margin-top:40px;
+}
+
+/*Login Buttons*/
+.navbar-items{
+    background: rgba(0,0,0,0);
+    border:0;
+    color:orange;
+    position:relative;
+    margin-top:40px;
+    
+    
+    
+}
+
+.login-button{
+    margin-top:35px;
+}
+
+#header{
+    font-size:100px;
+}
+
+/*Home Body*/
+.logo{
+    max-height:500px;
 }

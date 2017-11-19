@@ -23,8 +23,11 @@ require_once("session.php");
 
 #bootstrap
 echo '<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">';
+#font - Passion one
+echo '<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">';
 
-
+#global css
+echo '<link rel="stylesheet" type="text/css" href="../assets/css/global.css">';
 #Page Specific#
 if($current_dir == "admin"){
     #admin section
