@@ -1,6 +1,13 @@
-body{
-    background-color: #ffe692;
-}
+body {
+    background: #ffb833; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, #ffb833, #ffca68);
+    background: -moz-linear-gradient(right, #ffb833, #ffca68);
+    background: -o-linear-gradient(right, #ffb833, #ffca68);
+    background: linear-gradient(to left, #ffb833, #ffca68);
+    font-family: 'Passion One', cursive;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+  }
 nav{
     background-color: rgba(0,0,0,0)!important;
     border:none!important;

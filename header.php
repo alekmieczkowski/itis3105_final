@@ -40,6 +40,8 @@ if($current_dir == "admin"){
 else if($current_dir == "user"){
     #user section
     
+    //user css
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/user.css">';
     //include sql stuff for user
     include("db/user_sql.php");
 }

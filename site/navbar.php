@@ -14,11 +14,11 @@ function login_button(){
     }
     else{
         #if session does not exist add Signin button
-        echo '<li><form action="../user/logIn.php">
+        echo '<li><form action="../user/signin.php">
                 <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Login</button>
               </form></li>
     
-              <li><form action="../user/signUp.php" >
+              <li><form action="../user/signin.php" >
                 <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Signup</button>
               </form></li>';
               
@@ -50,7 +50,7 @@ function login_button(){
 
         <!--Login/logout button-->
         <?php login_button();?>
-        
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
