@@ -1,8 +1,31 @@
 <?php 
 require_once("session.php");
+?>
 
-#Setup CSS/JS Imports for different folders
 
+
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Camp Niners</title>
+  <meta name="description" content="Camp Niners">
+  <meta name="author" content="SitePoint">
+
+
+<!--Setup File Imports for different folders-->
+<?php
+
+#global#
+
+#bootstrap
+echo '<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">';
+
+
+#Page Specific#
 if($current_dir == "admin"){
     #admin section
     $test = "Hello";
@@ -17,6 +40,17 @@ else if($current_dir == "user"){
     //include sql stuff for user
     include("db/user_sql.php");
 }
-
+else if($current_dir == "site"){
+    #site section
+    
+    //include css
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/site.css">';
+}
 ?>
 
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>

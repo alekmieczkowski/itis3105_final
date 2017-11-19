@@ -1,14 +1,20 @@
-<html>
 
-<form action="../user/logIn.php">
-<button name="logIn" type="submit" value="LogIn">LogIn</button>
-</form>
+<?php
+$current_dir = basename(dirname(__FILE__));
+require_once ('../header.php');
+?>
+<!--Body Start-->
 
-<form action="../user/signUp.php" >
-    <button name="logIn" type="submit" value="LogIn">SignUp</button>
-</form>
+<!--Insert Navbar-->
+<?php include("navbar.php");?>
 
 
-<button name="logIn" value="LogIn">Show Events</button>
+<div class="container-fluid">
 
-</html>
+    <button name="logIn" value="LogIn">Show Events</button>
+
+
+</div> <!--End Conitainer Fluid-->
+
+<!--Body End-->
+<?php require_once ("../footer.php");?>
