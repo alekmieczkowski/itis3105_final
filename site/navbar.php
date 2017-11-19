@@ -8,16 +8,20 @@ function login_button(){
         echo '<li><form action="">
                 <button name="disconnect" class="navbar-items login-button" type="submit" value="disconnect">Sign Out</button>
               </form></li>';
+        if(true){ #TODO: If user is admin then show link to admin page. For now set to TRUE always
+            echo '<li class="font-primary"><a class="navbar-items" href="#">Admin Portal</a></li>';
+        }
     }
     else{
         #if session does not exist add Signin button
         echo '<li><form action="../user/logIn.php">
-                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">LogIn</button>
+                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Login</button>
               </form></li>
     
               <li><form action="../user/signUp.php" >
-                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">SignUp</button>
+                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Signup</button>
               </form></li>';
+              
     }
 }
 ?>
@@ -40,11 +44,13 @@ function login_button(){
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      
       <ul class="nav navbar-nav navbar-right">
+        
+        <!--Events-->
+        <li class=" font-primary"><a  class="navbar-items" href="#">Events</a></li>
+
         <!--Login/logout button-->
         <?php login_button();?>
-
-        <!--Events-->
-        <li class=" font-primary"><a  class="navbar-items"href="#">Events</a></li>
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
