@@ -44,6 +44,8 @@ else if($current_dir == "user"){
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/user.css">';
     //include sql stuff for user
     include("db/user_sql.php");
+
+
 }
 else if($current_dir == "site"){
     #site section

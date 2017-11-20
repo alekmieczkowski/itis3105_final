@@ -3,25 +3,26 @@
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
 
-if (isset($_POST['fName']))
+if (isset($_POST['username'])&&isset($_POST['password']))
 {
-    if ($_POST['password']!=$_POST['confirmPassword'])
+    $users = sql_getUsers();
+
+
+    foreach ($users  as $user)
     {
-        echo '<html> User name and confirm user name do not match</html>';
+        if ($user['username']==$_POST['username'])
+        {
+            if ($user['isAdmin']==1)
+            {
+                header('Location: ../admin/adminHome.php');
+            }
+            else
+            {
+                header('Location: userHome.php');
+            }
+        }
 
     }
-    elseif ($_POST['age']<18)
-    {
-        echo '<html> Age must be above 18</html>';
-    }
-    else
-    {
-
-        sql_userSignup();
-
-    }
-
-
 
 
 }
@@ -77,9 +78,9 @@ if (isset($_POST['fName']))
 
 
         <!--Login-->
-        <form class="login-form">
-        <input type="text" placeholder="username"/>
-        <input type="password" placeholder="password"/>
+        <form action="" class="login-form" method="post">
+        <input type="text" name="username" placeholder="username" required/>
+        <input type="password" name="password" placeholder="password" required/>
         <button>login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
