@@ -3,7 +3,6 @@
 if (!isset($_SESSION))
 {
   session_start();
-  $_SESSION['wow']=3;
 }
 
 

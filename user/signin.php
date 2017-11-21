@@ -2,10 +2,17 @@
 
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
-session_start();
+//session_start();
 
 if (isset($_POST['username'])&&isset($_POST['password']))
 {
+
+    #if it is sign up
+    if(isset($_POST['confirmPassword'])){
+        sql_userSignup();
+    }
+
+    //sql_userSignup();
     $users = sql_getUsers();
 
 
@@ -15,6 +22,8 @@ if (isset($_POST['username'])&&isset($_POST['password']))
         {
 
             $_SESSION['userID']=$user['userID'];
+            $_SESSION['isAdmin'] = $user['isAdmin'];
+
             if ($user['isAdmin']==1)
             {
                 header('Location: ../admin/adminHome.php');
@@ -46,7 +55,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             </div>
         </div>
         <!--Sign up-->
-        <form class="register-form">
+        <form class="register-form" method="post">
             <div class="row">
                 <div class="col-md-6 col-xs-12 .visible-sm-block, hidden-sm">
                     <input type="text" placeholder="First Name" name="fName" required><br>
@@ -63,11 +72,11 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                 <div class="col-md-6 col-xs-12">
                     <input type="text" placeholder="Phone Number" name="phoneNumber"required><br>
                     <label  class="control control--radio">Admin
-                        <input type="checkbox" name="role" id="check-admin" value="1" required>
+                        <input type="checkbox" name="role" id="check-admin" value="1" >
                         <div class="control__indicator"></div>
                     </label>&nbsp&nbsp&nbsp&nbsp&nbsp
                     <label  class="control control--radio" >User
-                    <input type="checkbox" name="role" id="check-user" value="0"required>
+                    <input type="checkbox" name="role" id="check-user" value="0">
                     <div class="control__indicator"></div>
                     </label>
                 </div>
