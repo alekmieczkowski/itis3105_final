@@ -29,6 +29,19 @@ function sql_getEvents(){
 }
 
 /*
+Get Event image
+*/
+function sql_getEventImage($eventID){
+    
+        $db = db::getInstance();
+        $stm=$db->prepare("select image from activities where activityID=".$eventID);
+        $stm->execute();
+        $event_img=$stm->fetch();
+        header('Content-type: image/jpg');
+        return $event_img;
+    }
+
+/*
 Delete Event
 */
 function sql_delEvent($eventID){
@@ -111,7 +124,11 @@ function sql_getSameEvents($eventName){
 
 
 
-
+#image render
+if(isset($_GET['imageBlob'])){
+    header('Content-type: image/jpg');
+    echo $data['myImage'];
+}
 
 
 

@@ -1,3 +1,14 @@
 .font-primary{
     font-family: 'Passion One', cursive;
 }
+
+body {
+    background: #ffb833; 
+    background: -webkit-linear-gradient(right, #ffb833, #ffca68);
+    background: -moz-linear-gradient(right, #ffb833, #ffca68);
+    background: -o-linear-gradient(right, #ffb833, #ffca68);
+    background: linear-gradient(to left, #ffb833, #ffca68);
+    font-family: 'Passion One', cursive;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+  }

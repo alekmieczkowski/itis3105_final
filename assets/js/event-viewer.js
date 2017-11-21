@@ -19,10 +19,12 @@ function showListOfPaginatedQuestions(event_json) {
     $.each( event_json, function( index, user){     
         table += '<tr>';
         table += '<td class="edit" field="qcat_id" user_id="'+user.quest_id+'">'+user.qcat_name+'</td>';
-});
+    });
+    return table;
+}
 
 $( document ).ready(function(){
-    events_json = <?php echo $events_json?>;
-    $('div#events').html(table);
+    events_json;
+    $('div#events').html(showListOfPaginatedQuestions(events_json));
     
 });
