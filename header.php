@@ -1,5 +1,6 @@
 <?php 
-require_once("session.php");
+//require_once("../session.php");
+include("session.php");
 ?>
 
 

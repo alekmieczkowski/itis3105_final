@@ -2,7 +2,8 @@
 #Check to put signup or login button in navbar
 
 function login_button(){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['userID'])){
+
         #if session exists give logout
         echo '<li><form action="">
                 <button name="disconnect" class="navbar-items login-button" type="submit" value="disconnect">Sign Out</button>

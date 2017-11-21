@@ -7,12 +7,14 @@
  */
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
+session_start();
+
 
 
 //register for an event
 if (isset($_POST['regActivity']))
 {
-    sql_registerEvent(2,$_POST['regActivity']);
+    sql_registerEvent($_SESSION['userID'],$_POST['regActivity']);
 }
 
 ?>

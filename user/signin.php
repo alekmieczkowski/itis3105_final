@@ -2,6 +2,7 @@
 
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
+session_start();
 
 if (isset($_POST['username'])&&isset($_POST['password']))
 {
@@ -12,6 +13,8 @@ if (isset($_POST['username'])&&isset($_POST['password']))
     {
         if ($user['username']==$_POST['username'])
         {
+
+            $_SESSION['userID']=$user['userID'];
             if ($user['isAdmin']==1)
             {
                 header('Location: ../admin/adminHome.php');
