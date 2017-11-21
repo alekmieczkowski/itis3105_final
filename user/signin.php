@@ -45,7 +45,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
     foreach ($users  as $user)
     {
-        if ($user['username']==$_POST['username'])
+        if ($user['username']==$_POST['username']&&$user['password']==$_POST['password'])
         {
 
             $_SESSION['userID']=$user['userID'];
