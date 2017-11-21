@@ -1,3 +1,8 @@
+<?php
+//get all events
+$events=sql_getEvents();
+?>
+
 <div id="table" class="col-md-5  col-md-offset-0 col-xs-6 col-xs-offset-2">
             <table >
                 <tr>

@@ -18,9 +18,12 @@ function session_disconnect(){
     session_destroy();
     //refresh page
     header("Refresh:0");
+    unset($_GET['disconnect']);
+    header("Location: ../site/home.php");
 }
 
 #run disconnect
 if(isset($_GET['disconnect'])){
     session_disconnect();
+
 }

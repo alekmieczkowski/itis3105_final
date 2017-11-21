@@ -51,9 +51,9 @@ if (isset($_POST['regActivity']))
         
 
 
-        <div class="col-sm-4  col-sm-offset-1 col-xs-12">
-            <?php include("events_list.php");?>
-        </div>
+        
+            <?php include("events_list.old.php");?>
+        
     </div>
 </div>
 <?php include("../footer.php"); ?>
