@@ -2,42 +2,34 @@
 
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
-//session_start();
+session_start();
+$error="";
 
-if (isset($_POST['username'])&&isset($_POST['password']))
+if (isset($_POST['fName']))
 {
-
-    #if it is sign up
-    if(isset($_POST['confirmPassword'])){
-        sql_userSignup();
-    }
-
-    //sql_userSignup();
-    $users = sql_getUsers();
-
-
-    foreach ($users  as $user)
+    if ($_POST['password']!=$_POST['confirmPassword'])
     {
-        if ($user['username']==$_POST['username'])
-        {
-
-            $_SESSION['userID']=$user['userID'];
-            $_SESSION['isAdmin'] = $user['isAdmin'];
-
-            if ($user['isAdmin']==1)
-            {
-                header('Location: ../admin/adminHome.php');
-            }
-            else
-            {
-                header('Location: userHome.php');
-            }
-        }
+        echo '<html> Password and confirm password do not match</html>';
+        $error="Password and confirm password do not match";
 
     }
+    elseif ($_POST['age']<18)
+    {
+        echo '<html> Age must be above 18</html>';
+        $error="Age must be above 18";
+    }
+    else
+    {
+
+           sql_userSignup();
+
+    }
+
+
 
 
 }
+
 
 
 ?>
@@ -55,7 +47,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             </div>
         </div>
         <!--Sign up-->
-        <form class="register-form" method="post">
+        <form class="register-form" method="post" action="">
             <div class="row">
                 <div class="col-md-6 col-xs-12 .visible-sm-block, hidden-sm">
                     <input type="text" placeholder="First Name" name="fName" required><br>

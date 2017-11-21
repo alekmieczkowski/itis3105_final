@@ -25,8 +25,22 @@ if (isset($_POST['fName']))
     }
     else
     {
+        $db = db::getInstance();
+        $stm1 = $db->prepare("insert into users (username, f_name, l_name,password,email,phone, age, isAdmin)
+VALUES (?,?,?,?,?,?,?,?)");
+        $stm1->bindValue(1, $_POST['userName']);
+        $stm1->bindValue(2, $_POST['fName']);
+        $stm1->bindValue(3, $_POST['lName']);
+        $stm1->bindValue(4, $_POST['password']);
+        $stm1->bindValue(5, $_POST['email']);
+        $stm1->bindValue(6, $_POST['phoneNumber']);
+        $stm1->bindValue(7, $_POST['age']);
+        $stm1->bindValue(8, $_POST['role']);
 
-        sql_userSignup();
+        $stm1->execute();
+        $stm1->closeCursor();
+
+     //   sql_userSignup();
 
     }
 
@@ -53,7 +67,9 @@ if (isset($_POST['fName']))
     <input type="email" placeholder="Email Address" name="email"required><br>
     <input type="radio" name="role" value="1"required>Admin
     <input type="radio" name="role" value="0"required>User<br>
-    <input type="submit" value="Sign Up">
+
+
+    <input type="submit" value="Sign Up22">
 
 
 </form>
