@@ -24,7 +24,7 @@ function sql_getUsers(){
     $stm=$db->prepare("select * from users");
     $stm->execute();
     $users=$stm->fetchAll();
-
+    
     return $users;
 }
 
@@ -39,7 +39,14 @@ function sql_getEvents(){
 
     return $events;
 }
-
+//get events in json format
+function sql_getEventsJson(){
+    
+        $db = db::getInstance();
+        $stm=$db->prepare("select * from activities");
+        $stm->execute();
+        return json_encode($stm->fetchAll(PDO::FETCH_ASSOC));
+    }
 
 function sql_userSignup()
 {

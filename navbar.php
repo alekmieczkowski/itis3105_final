@@ -1,5 +1,4 @@
 <?php
-
 #Check to put signup or login button in navbar
 
 function login_button(){
@@ -26,6 +25,7 @@ function login_button(){
 }
 ?>
 
+<?php echo '<link rel="stylesheet" type="text/css" href="../assets/css/site.css">'?>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid" style="max-width:1000px;">
@@ -37,7 +37,7 @@ function login_button(){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img class="logo-icon" src="img/logo-icon.png"></a>
+      <a class="navbar-brand" href="../site/home.php"><img class="logo-icon" src="../site/img/logo-icon.png"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

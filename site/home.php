@@ -6,7 +6,7 @@ require_once ('../header.php');
 <!--Body Start-->
 
 <!--Insert Navbar-->
-<?php include("navbar.php");?>
+<?php include("../navbar.php");?>
 
 <!--Start of main page container-->
 <div class="container-fluid">

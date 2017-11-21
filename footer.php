@@ -10,6 +10,7 @@ if($current_dir == "site"){
 else if($current_dir == "user"){
     echo '<script src="../assets/js/particles.js"></script>';
     echo '<script src="../assets/js/user.js"></script>';
+    echo '<script src="../assets/js/event-viewer.js"></script>';
     
     
 }

@@ -33,7 +33,7 @@
 
   @media only screen and (max-width: 768px) {
     form-login {
-        b width:360px;
+        width:360px;
     }
 }
 
