@@ -2,7 +2,7 @@
 
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
-session_start();
+//session_start();
 $error="";
 
 //register an account
@@ -49,6 +49,8 @@ if (isset($_POST['username'])&&isset($_POST['password']))
         {
 
             $_SESSION['userID']=$user['userID'];
+            $_SESSION['username']=$user['username'];
+            $_SESSION['age']=$user['age'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
 
             if ($user['isAdmin']==1)

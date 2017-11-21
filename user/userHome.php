@@ -7,7 +7,7 @@
  */
 $current_dir = basename(dirname(__FILE__));
 include("../header.php");
-session_start();
+//session_start();
 
 
 #redirect if not logged in
@@ -38,7 +38,7 @@ if (isset($_POST['regActivity']))
             <h2>Profile</h2>
         </div>
         <div class="col-xs-0 col-md-2 col-md-offset-4">
-            <h2>Registered Events <?echo $_SESSION['userID']?></h2>
+            <h2>Registered Events</h2>
         </div>
     </div>
     <div class="row">
@@ -50,9 +50,9 @@ if (isset($_POST['regActivity']))
                     <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading">User Name</h4>
+                    <h4 class="media-heading"><?php echo $_SESSION['username']?></h4>
                     <span><img class="email" src="img/email.png"/></span>
-                    <span class="label label-default">Member Since XX/XX/XX</span>
+                    <span class="label label-default">Age: <?php echo $_SESSION['age']?></span>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@ if (isset($_POST['regActivity']))
 
 
         
-            <?php include("events_list.old.php");?>
+            <?php include("events_list.php");?>
         
     </div>
 </div>

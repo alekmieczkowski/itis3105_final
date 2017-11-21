@@ -20,7 +20,10 @@ $events=sql_getEvents();
         ?>
     <div class="col-md-4 col-sm-3 event-item">
         <h3 class="event-name"><?php echo $e_name ?></h3>
-        <img class="event-img" src="'<?php echo base64_encode($event['image']); ?>'"/>
+        <img class="event-img" src="../db/img/<?php echo $e_img?>"/>
+        <h4 class="event-date"><?php echo $e_date?></h4>
+
+
     </div>
 </div>
     <?php endforeach; ?>
