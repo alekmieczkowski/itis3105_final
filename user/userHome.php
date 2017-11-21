@@ -10,6 +10,12 @@ include("../header.php");
 //session_start();
 
 
+#redirect if not logged in
+if(!isset($_SESSION['userID'])){
+    header("Location: signin.php");
+}
+
+
 
 //register for an event
 if (isset($_POST['regActivity']))
@@ -32,7 +38,7 @@ if (isset($_POST['regActivity']))
             <h2>Profile</h2>
         </div>
         <div class="col-xs-0 col-md-2 col-md-offset-4">
-            <h2>Registered Events</h2>
+            <h2>Registered Events <?echo $_SESSION['userID']?></h2>
         </div>
     </div>
     <div class="row">
