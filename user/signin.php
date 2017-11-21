@@ -5,6 +5,7 @@ include("../header.php");
 session_start();
 $error="";
 
+//register an account
 if (isset($_POST['fName']))
 {
     if ($_POST['password']!=$_POST['confirmPassword'])
@@ -27,9 +28,43 @@ if (isset($_POST['fName']))
 
 
 
-
+//sign in
 }
 
+if (isset($_POST['username'])&&isset($_POST['password']))
+{
+
+    #if it is sign up
+    if(isset($_POST['confirmPassword'])){
+        sql_userSignup();
+    }
+
+    //sql_userSignup();
+    $users = sql_getUsers();
+
+
+    foreach ($users  as $user)
+    {
+        if ($user['username']==$_POST['username'])
+        {
+
+            $_SESSION['userID']=$user['userID'];
+            $_SESSION['isAdmin'] = $user['isAdmin'];
+
+            if ($user['isAdmin']==1)
+            {
+                header('Location: ../admin/adminHome.php');
+            }
+            else
+            {
+                header('Location: userHome.php');
+            }
+        }
+
+    }
+
+
+}
 
 
 ?>
@@ -85,6 +120,7 @@ if (isset($_POST['fName']))
         <form action="" class="login-form" method="post">
         <input type="text" name="username" placeholder="username" required/>
         <input type="password" name="password" placeholder="password" required/>
+            <input type="checkbox" name="rememberMe">Remember Me
         <button>login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
