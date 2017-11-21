@@ -11,8 +11,8 @@ function loadEvents(event_json){
 }
 
 function showListOfPaginatedQuestions(event_json) {
-    alert('pagED RAN!');
-    alert(event_json);
+    //alert('pagED RAN!');
+    //alert(event_json);
     console.log(event_json);
     var table = '<table width="600" cellpadding="5" class="table table-hover table-bordered"><thead><tr><th scope="col">Category</th><th scope="col">Type</th><th scope="col">Question</th><th scope="col">Question Description</th><th scope="col"></th></tr></thead><tbody>';
 
