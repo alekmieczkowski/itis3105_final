@@ -47,6 +47,20 @@ if (isset($_POST['username'])&&isset($_POST['password']))
     {
         if ($user['username']==$_POST['username']&&$user['password']==$_POST['password'])
         {
+            //check if remember me is set
+            if (isset($_POST['rememberMe']))
+            {
+                setcookie('username',$_POST['username'],time()+31536000);
+                setcookie('password',$_POST['password'],time()+31536000);
+
+            }
+
+            else
+            {
+                setcookie('username',$_POST['username'],time()-31536000);
+                setcookie('password',$_POST['password'],time()-31536000);
+
+            }
 
             $_SESSION['userID']=$user['userID'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
@@ -118,8 +132,8 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
         <!--Login-->
         <form action="" class="login-form" method="post">
-        <input type="text" name="username" placeholder="username" required/>
-        <input type="password" name="password" placeholder="password" required/>
+        <input type="text" name="username" placeholder="username" value="<?php if (isset($_COOKIE['username']))echo $_COOKIE['username'];?>" required/>
+        <input type="password" name="password" placeholder="password" value="<?php if (isset($_COOKIE['password']))echo $_COOKIE['password'];?>" required/>
             <input type="checkbox" name="rememberMe">Remember Me
         <button>login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>

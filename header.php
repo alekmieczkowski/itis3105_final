@@ -35,7 +35,7 @@ if($current_dir == "admin"){
     $test = "Hello";
 
     //include sql stuff for admin
-    include("db/admin_sql.php");
+    include("db/event_sql.php");
     
 }
 else if($current_dir == "user"){
