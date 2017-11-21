@@ -15,6 +15,7 @@ include("../header.php");
 if (isset($_POST['regActivity']))
 {
     sql_registerEvent($_SESSION['userID'],$_POST['regActivity']);
+
 }
 
 ?>
