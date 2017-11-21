@@ -46,12 +46,12 @@ if (isset($_POST['regActivity']))
 
         <div class="col-md-3  col-md-offset-2 col-xs-12 text-center profile-div">
             <div class="media">
-                <a href="#">
+                <a href="">
                     <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
                 </a>
                 <div class="media-body">
                     <h4 class="media-heading"><?php echo $_SESSION['username']?></h4>
-                    <span><img class="email" src="img/email.png"/></span>
+                    <span><a href="mailto:<?php echo $_SESSION['user_email']?>"><img class="email" src="img/email.png"/></a></span>
                     <span class="label label-default">Age: <?php echo $_SESSION['age']?></span>
                 </div>
             </div>
