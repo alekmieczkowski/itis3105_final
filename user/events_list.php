@@ -24,7 +24,7 @@ $events=sql_getEvents();
 
         ?>
         <!--Event Item-->
-        <div class="col-lg-2 col-md-3 col-sm-3 event-item center-block">
+        <div class="col-lg-3 col-md-4 col-xs-2 event-item">
             <h3 class="event-name text-center"><?php echo $e_name ?></h3>
             <h4 class="event-date text-center"><?php echo $date?></h4>
             <img class="event-img center-block" src="../db/img/<?php echo $e_img?>"/>

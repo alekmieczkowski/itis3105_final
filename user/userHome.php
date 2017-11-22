@@ -60,9 +60,9 @@ if (isset($_POST['regActivity']))
         
 
 
-        
+        <div class="col-md-6  col-sm-12 col-xs-12">
             <?php include("events_list.php");?>
-        
+        </div>
     </div>
 </div>
 <?php include("../footer.php"); ?>
