@@ -8,7 +8,7 @@ function login_button(){
         echo '<li><form action="">
                 <button name="disconnect" class="navbar-items login-button" type="submit" value="disconnect">Sign Out</button>
               </form></li>';
-        if(true){ #TODO: If user is admin then show link to admin page. For now set to TRUE always
+        if($_SESSION['isAdmin']){ #TODO: If user is admin then show link to admin page. For now set to TRUE always
             echo '<li class="font-primary"><a class="navbar-items" href="#">Admin Portal</a></li>';
         }
     }
