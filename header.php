@@ -26,6 +26,9 @@ include("session.php");
 echo '<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">';
 #font - Passion one
 echo '<link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">';
+#footer
+echo '<link rel="stylesheet" type="text/css" href="../assets/css/footer.css">';
+echo '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">';
 
 #global css
 echo '<link rel="stylesheet" type="text/css" href="../assets/css/global.css">';

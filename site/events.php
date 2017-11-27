@@ -64,7 +64,7 @@ $events = sql_getEvents();
                     <p class="product-description event-description"><?php echo $e_desc?></p>
                     <h4 class="price event-price">Event Price: <span><?php echo $e_price?>$</span></h4>
                     <div class="action">
-                        <button class="event-button" type="button">add to cart</button>
+                        <button class="event-button" type="button">Register</button>
                     </div>
                 </div>
             </div>
