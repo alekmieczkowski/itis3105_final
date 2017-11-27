@@ -12,7 +12,7 @@ session_start();
 
 #redirect if not logged in
 if(!isset($_SESSION['userID'])){
-    header("Location: signin.php");
+    header("Location: ../user/signin.php");
 }
 
 
