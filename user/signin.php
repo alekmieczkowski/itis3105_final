@@ -86,8 +86,9 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
 
 ?>
+
 <!--particles.js-->
-<!--<div id="particles-js" style="z-index:-100!important"></div>-->
+<div id="particles-js" style="z-index:-999!important; position:absolute; width:100%"></div>
 
 <div class="login-page form-login">
     <div class="container-fluid form form-login">

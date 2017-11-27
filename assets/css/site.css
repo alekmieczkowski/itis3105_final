@@ -1,13 +1,4 @@
-body {
-    background: #ffb833; /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #ffb833, #ffca68);
-    background: -moz-linear-gradient(right, #ffb833, #ffca68);
-    background: -o-linear-gradient(right, #ffb833, #ffca68);
-    background: linear-gradient(to left, #ffb833, #ffca68);
-    font-family: 'Passion One', cursive;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;      
-  }
+
 nav{
     background-color: rgba(0,0,0,0)!important;
     border:none!important;
@@ -22,7 +13,7 @@ nav{
 .navbar-items{
     background: rgba(0,0,0,0);
     border:0;
-    color:ffb833;
+    color:#1b1812!important;
     position:relative;
     margin-top:40px;
     
@@ -32,6 +23,7 @@ nav{
 
 .login-button{
     margin-top:36px;
+    color:#1b1812!important;
 }
 
 #header{
