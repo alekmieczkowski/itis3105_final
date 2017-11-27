@@ -1,6 +1,7 @@
 
 nav{
     background-color: rgba(0,0,0,0)!important;
+
     border:none!important;
     font-size:40px;
 }
@@ -13,7 +14,7 @@ nav{
 .navbar-items{
     background: rgba(0,0,0,0);
     border:0;
-    color:#1b1812!important;
+    color:#7e4412!important;
     position:relative;
     margin-top:40px;
     
@@ -23,7 +24,7 @@ nav{
 
 .login-button{
     margin-top:36px;
-    color:#1b1812!important;
+
 }
 
 #header{

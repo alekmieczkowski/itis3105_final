@@ -88,7 +88,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 ?>
 
 <!--particles.js-->
-<div id="particles-js" style="z-index:-999!important; position:absolute; width:100%"></div>
+<!--<div id="particles-js" style="z-index:-999!important; position:absolute; width:100%"></div>-->
 
 <div class="login-page form-login">
     <div class="container-fluid form form-login">
@@ -136,13 +136,23 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
 
         <!--Login-->
-        <form action="" class="login-form" method="post">
-        <input type="text" name="username" placeholder="username" value="<?php if (isset($_COOKIE['username']))echo $_COOKIE['username'];?>" required/>
-        <input type="password" name="password" placeholder="password" value="<?php if (isset($_COOKIE['password']))echo $_COOKIE['password'];?>" required/>
-            <input type="checkbox" name="rememberMe">Remember Me
-        <button>login</button>
-        <p class="message">Not registered? <a href="#">Create an account</a></p>
-        </form>
+        <div class="row">
+            <form action="" class="login-form" method="post">
+                <div class="col-md-12">
+                    <input type="text" name="username" placeholder="username" value="<?php if (isset($_COOKIE['username']))echo $_COOKIE['username'];?>" required/>
+                </div>
+                <div class="col-md-12">
+                    <input type="password" name="password" placeholder="password" value="<?php if (isset($_COOKIE['password']))echo $_COOKIE['password'];?>" required/>
+                </div>
+                <div class="col-md-12">   
+                <input type="checkbox" class="remember-checkbox"  id="rememberMe" name="rememberMe"><label for="rememberMe"><span></span>Remember Me</label><!--<p class="checkbox-text">Remember Me</p>-->
+                </div>
+            <div class="col-md-12">
+                <button>login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
+            </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -6,11 +6,12 @@
 if($current_dir == "site"){
     echo '<script src="../assets/js/arctext.js"></script>';
     echo '<script src="../assets/js/home.js"></script>';
+
 }
 else if($current_dir == "user"){
     echo '<script src="../assets/js/particles.js"></script>';
     echo '<script src="../assets/js/user.js"></script>';
-    echo '<script src="../assets/js/event-viewer.js"></script>';
+    #echo '<script src="../assets/js/event-viewer.js"></script>';
     
     
 }

@@ -8,7 +8,7 @@ require_once ('../header.php');
 
 <!--Insert Navbar-->
 <?php include("../navbar.php");?>
-
+<div id="app" style="position:absolute; z-index:-100;"></div>
 <!--Start of main page container-->
 <div class="container-fluid">
 

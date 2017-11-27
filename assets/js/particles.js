@@ -425,7 +425,11 @@ var pJS = function(tag_id, params){
     switch(p.shape){
 
       case 'circle':
+      try {
         pJS.canvas.ctx.arc(p.x, p.y, radius, 0, Math.PI * 2, false);
+      } catch(err) {
+        alert(err);
+      }
       break;
 
       case 'edge':
