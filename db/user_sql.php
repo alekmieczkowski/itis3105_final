@@ -28,14 +28,20 @@ function sql_getUsers(){
     return $users;
 }
 
-//get events in json format
-function sql_getEventsJson(){
-    
-        $db = db::getInstance();
-        $stm=$db->prepare("select * from activities");
-        $stm->execute();
-        return json_encode($stm->fetchAll(PDO::FETCH_ASSOC));
-    }
+function sql_getRegisteredEventsForUser(){
+    $userID=$_SESSION['userID'];
+
+    $db = db::getInstance();
+    $sql = "Select * from reg_activities where userID=".$userID;
+    $stm=$db->prepare($sql);
+    $stm->execute();
+    $events=$stm->fetchAll();
+
+    return $events;
+
+}
+
+
 
 function sql_userSignup()
 {
