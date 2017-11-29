@@ -93,7 +93,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 <div class="login-page form-login">
     <div class="container-fluid form form-login">
         <div class="row logo-header">
-            <div class="col-sm-6 text-center">
+            <div class="col-xs-6 text-center">
                 <img class="logo "src="../site/img/logo-icon.png"/>
             </div>
             <div class="col-sm-6 text-center">

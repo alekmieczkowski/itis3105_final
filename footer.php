@@ -40,10 +40,10 @@ else if($current_dir == "user"){
 			</div>
 
 			<div class="col-md-6 footer-right">
-
+                <form action="#" method="post">
 				<p style="font-size: 26px; margin-top:0px;">Contact Us</p>
 
-				<form action="#" method="post">
+				
 
 					<input type="email" name="email" placeholder="Email" />
 					<textarea name="message" placeholder="Message"></textarea>

@@ -5,7 +5,7 @@ function login_button(){
     if(isset($_SESSION['userID'])){
         #role specific buttons
         if($_SESSION['isAdmin']){ #TODO: If user is admin then show link to admin page. For now set to TRUE always
-          echo '<li class="font-primary"><a class="navbar-items" href="#">Admin Portal</a></li>';
+          echo '<li class="font-primary"><a class="navbar-items" href="../admin/adminHome.php">Admin Portal</a></li>';
       }
       else{
         echo '<li class="font-primary"><a class="navbar-items" href="../user/userHome.php">User Profile</a></li>';
