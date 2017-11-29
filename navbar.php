@@ -3,14 +3,18 @@
 
 function login_button(){
     if(isset($_SESSION['userID'])){
-
+        #role specific buttons
+        if($_SESSION['isAdmin']){ #TODO: If user is admin then show link to admin page. For now set to TRUE always
+          echo '<li class="font-primary"><a class="navbar-items" href="../admin/adminHome.php">Admin Portal</a></li>';
+      }
+      else{
+        echo '<li class="font-primary"><a class="navbar-items" href="../user/userHome.php">User Profile</a></li>';
+      }
         #if session exists give logout
         echo '<li><form action="">
                 <button name="disconnect" class="navbar-items login-button" type="submit" value="disconnect">Sign Out</button>
               </form></li>';
-        if(true){ #TODO: If user is admin then show link to admin page. For now set to TRUE always
-            echo '<li class="font-primary"><a class="navbar-items" href="#">Admin Portal</a></li>';
-        }
+        
     }
     else{
         #if session does not exist add Signin button
@@ -47,7 +51,20 @@ function login_button(){
       <ul class="nav navbar-nav navbar-right">
         
         <!--Events-->
-        <li class=" font-primary"><a  class="navbar-items" href="#">Events</a></li>
+        <?php
+         $events_link = '<li class=" font-primary"><a  class="navbar-items" href="../site/events.php">Events</a></li>';
+         $home_link = '<li class=" font-primary"><a  class="navbar-items" href="../site/home.php">Home</a></li>';
+         if($current_file == "home.php"){
+          echo $events_link;
+         }
+        elseif($current_file == "events.php"){
+          echo $home_link;
+        }
+        else{
+          echo $events_link;
+          echo $home_link;
+        }
+        ?>
 
         <!--Login/logout button-->
         <?php login_button();?>

@@ -6,13 +6,14 @@
  * Time: 9:34 PM
  */
 $current_dir = basename(dirname(__FILE__));
+$current_file = basename(__FILE__);
 include("../header.php");
 session_start();
 
 
 #redirect if not logged in
 if(!isset($_SESSION['userID'])){
-    header("Location: signin.php");
+    header("Location: ../user/signin.php");
 }
 
 

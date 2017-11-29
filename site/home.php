@@ -1,13 +1,14 @@
 
 <?php
 $current_dir = basename(dirname(__FILE__));
+$current_file = basename(__FILE__);
 require_once ('../header.php');
 ?>
 <!--Body Start-->
 
 <!--Insert Navbar-->
 <?php include("../navbar.php");?>
-
+<div id="app" style="position:absolute; z-index:-100;"></div>
 <!--Start of main page container-->
 <div class="container-fluid">
 
@@ -23,7 +24,6 @@ require_once ('../header.php');
             <img class="logo" src="img/logo.png"/>
         </div>
     </div>
-    <button name="logIn" value="LogIn">Show Events</button>
 
 
 </div> <!--End Conitainer Fluid-->
