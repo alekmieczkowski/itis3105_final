@@ -37,7 +37,11 @@ if($current_dir == "admin"){
     #admin section
     $test = "Hello";
 
+    //admin css
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/admin.css">';
     //include sql stuff for admin
+    
+    include("db/user_sql.php");
     include("db/event_sql.php");
     
 }
@@ -51,6 +55,7 @@ else if($current_dir == "user"){
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/table.css">';
     //include sql stuff for user
     include("db/user_sql.php");
+    include("db/event_sql.php");
 
 
 }
@@ -60,6 +65,7 @@ else if($current_dir == "site"){
     //include css
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/site.css">';
 }
+
 ?>
 
   <!--[if lt IE 9]>

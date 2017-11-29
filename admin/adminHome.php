@@ -8,7 +8,7 @@
 $current_dir = basename(dirname(__FILE__));
 $current_file = basename(__FILE__);
 include("../header.php");
-session_start();
+//session_start();
 
 
 #redirect if not logged in
@@ -20,7 +20,7 @@ if(!isset($_SESSION['userID'])){
 
 ?>
 
-<div class="container-fluid" >
+<div class="container-fluid">
 
     <!--Insert Navbar-->
     <?php include("../navbar.php");?>
@@ -28,34 +28,57 @@ if(!isset($_SESSION['userID'])){
 
 
     <div class="row row-top">
-        <div class="col-xs-12 col-md-1 col-md-offset-2">
-            <h2>Profile</h2>
+        <!--Header-->
+        <div class="col-md-12 text-center">
+            <h1>Admin Panel</h1>
         </div>
-        <div class="col-xs-0 col-md-2 col-md-offset-4">
-            <h2>Registered Events <?echo $_SESSION['userID']?></h2>
-        </div>
-    </div>
-    <div class="row">
+    <div class="row panel-row center-block">
 
-
-        <div class="col-md-3  col-md-offset-2 col-xs-12 text-center profile-div">
-            <div class="media">
-                <a href="#">
-                    <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">User Name</h4>
-                    <span><img class="email" src="img/email.png"/></span>
-                    <span class="label label-default">Member Since XX/XX/XX</span>
-                </div>
-            </div>
+        <!--side panel-->
+        <div class="col-md-3 table-responsive panel-side">
+            <table class="table-side text-center">
+                <h2 class="panel-left-header">Databases</h2>
+                <tbody>
+                <tr>
+                <td colspan="100%">Users</td>    
+                </tr>
+                <tr>
+                    <td colspan="100%">Events</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
+        <!--Filler panel-->
+        <div class="col-md-1"></div>
 
+        <!--Data panel-->
+        <div class="col-md-7 panel-main">
+            <!--Events Management-->
+            <?php 
+            $table_name="activities";
+            $table_data= sql_getEvents();
+            
+            include("db-list.php");
+            ?>
 
+            <!--User Management-->
+            <?php 
+            $table_name="users";
+            $table_data= sql_getUsers();
+            include("db-list.php");
+            ?>
 
-
-        <?php include("../user/events_list.old.php");?>
+            <!--Registered Activities Management-->
+            <?php 
+            #$table_name="reg_activities";
+            #$table_data= sql_getUsers();
+            //does not add a checkbox as last col in db
+            #$active_check = false;
+            #include("db-list.php");
+            ?>
+        </div>
+        
 
     </div>
 </div>

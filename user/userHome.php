@@ -44,12 +44,15 @@ if (isset($_POST['regActivity']))
     </div>
     <div class="row">
 
-
+        <!--Profile Stuff-->
         <div class="col-md-3  col-md-offset-2 col-xs-12 text-center profile-div">
+            <!--Profile Image-->
             <div class="media">
+                <!--email-->
                 <a href="">
                     <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
                 </a>
+                <!--Mail Button/ Labels-->
                 <div class="media-body">
                     <h4 class="media-heading"><?php echo $_SESSION['username']?></h4>
                     <span><a href="mailto:<?php echo $_SESSION['user_email']?>"><img class="email" src="img/email.png"/></a></span>

@@ -1,6 +1,6 @@
 <?php
 #import database
-include('dataBase.php');
+include_once('dataBase.php');
 
 /*
 
@@ -28,17 +28,6 @@ function sql_getUsers(){
     return $users;
 }
 
-//Get all Events
-
-function sql_getEvents(){
-
-    $db = db::getInstance();
-    $stm=$db->prepare("select * from activities");
-    $stm->execute();
-    $events=$stm->fetchAll();
-
-    return $events;
-}
 //get events in json format
 function sql_getEventsJson(){
     
@@ -66,15 +55,7 @@ VALUES (?,?,?,?,?,?,?,?)");
     $stm1->closeCursor();
 
 }
-//register for an event
-function sql_registerEvent($userID, $eventID){
-    $db = db::getInstance();
-    $sql = "Insert into reg_activities (userID,actID) VALUES(".$userID.",".$eventID.")";
-    $stm=$db->prepare($sql);
-    $stm->execute();
 
-    return true;
-}
 
 /*
 Check if user exists in db

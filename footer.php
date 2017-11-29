@@ -15,6 +15,9 @@ else if($current_dir == "user"){
     
     
 }
+else if($current_dir == "admin"){
+	echo '<script src="../assets/js/admin-page.js"></script>';
+}
 ?>
 
 <!--Footer-->

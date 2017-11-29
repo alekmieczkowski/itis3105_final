@@ -1,6 +1,6 @@
 <?php
 #import database
-include('dataBase.php');
+include_once('dataBase.php');
 
 /*
 Admin SQL queries
@@ -122,13 +122,35 @@ function sql_getSameEvents($eventName){
     return $events;
 }
 
+/*
+Get any table column names
+*/
+function sql_getColNames($table_name){
 
+    $db = db::getInstance();
+
+    #get col names
+    $rs = $db->query('SELECT * FROM '.$table_name.' LIMIT 0');
+
+    #initiate columns array
+    $columns;
+
+    #add all col names to array
+    for ($i = 0; $i < $rs->columnCount(); $i++) {
+        $col = $rs->getColumnMeta($i);
+        $columns[] = $col['name'];
+    }
+
+    #return array
+    return $columns;
+}
 
 #image render
 if(isset($_GET['imageBlob'])){
     header('Content-type: image/jpg');
     echo $data['myImage'];
 }
+
 
 
 
