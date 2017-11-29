@@ -54,7 +54,7 @@ if(!isset($_SESSION['userID'])){
 
 
 
-        <?php include("../user/events_list.old.php");?>
+        <?php include("admin_events_list.php");?>
 
     </div>
 </div>

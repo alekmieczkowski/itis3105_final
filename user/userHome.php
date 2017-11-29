@@ -57,11 +57,11 @@ if (isset($_POST['regActivity']))
             </div>
         </div>
 
-        
 
 
-        
-            <?php include("events_list.old.php");?>
+
+
+        <?php include("events_list.old.php");?>
         
     </div>
 </div>

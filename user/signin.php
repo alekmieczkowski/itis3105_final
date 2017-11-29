@@ -5,6 +5,7 @@ include("../header.php");
 session_start();
 $error="";
 
+$flag=1;
 //register an account
 if (isset($_POST['fName']))
 {
@@ -12,14 +13,24 @@ if (isset($_POST['fName']))
     {
         echo '<html> Password and confirm password do not match</html>';
         $error="Password and confirm password do not match";
+        $flag=0;
 
     }
-    elseif ($_POST['age']<18)
+    if ($_POST['age']<18)
     {
         echo '<html> Age must be above 18</html>';
         $error="Age must be above 18";
+        $flag=0;
     }
-    else
+    if (!isset($_POST['role']))
+    {
+        echo '<html> Role must be selected</html>';
+        $error="Role must be selected";
+        $flag=0;
+
+    }
+
+    if ($flag==1)
     {
 
            sql_userSignup();
@@ -104,8 +115,8 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                     <input type="text" placeholder="User Name" name="userName"required><br>
                 </div>
                 <div class="col-md-6 col-xs-12">
-                    <input type="text" placeholder="Password" name="password"required><br>
-                    <input type="text" placeholder="Confirm Password" name="confirmPassword"required><br>
+                    <input type="password" placeholder="Password" name="password"required><br>
+                    <input type="password" placeholder="Confirm Password" name="confirmPassword"required><br>
                     <input type="text" placeholder="Age" name="age"required><br>
                 </div>
             </div>
@@ -113,16 +124,16 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                 <div class="col-md-6 col-xs-12">
                     <input type="text" placeholder="Phone Number" name="phoneNumber"required><br>
                     <label  class="control control--radio">Admin
-                        <input type="checkbox" name="role" id="check-admin" value="1" >
+                        <input type="checkbox" name="role" id="check-admin" value="1"  >
                         <div class="control__indicator"></div>
                     </label>&nbsp&nbsp&nbsp&nbsp&nbsp
                     <label  class="control control--radio" >User
-                    <input type="checkbox" name="role" id="check-user" value="0">
+                    <input type="checkbox" name="role" id="check-user" value="0" >
                     <div class="control__indicator"></div>
                     </label>
                 </div>
                 <div class="col-sm-6">
-                    <input type="email" placeholder="Email Address" name="email"required><br>
+                    <input type="email" placeholder="Email Address" name="email"><br>
                     <input type="submit"  class="submit-button" value="Sign Up">
                 </div>
             </div>
