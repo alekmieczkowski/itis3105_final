@@ -24,6 +24,8 @@ if (isset($_POST['regActivity']))
 
 }
 
+
+
 ?>
 
 <div class="container-fluid" >
@@ -50,7 +52,7 @@ if (isset($_POST['regActivity']))
                     <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading">User Name</h4>
+                    <h4 class="media-heading">Welcome <?php echo $_SESSION['userName'] ?></h4>
                     <span><img class="email" src="img/email.png"/></span>
                     <span class="label label-default">Member Since XX/XX/XX</span>
                 </div>
