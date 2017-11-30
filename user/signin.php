@@ -38,8 +38,6 @@ if (isset($_POST['fName']))
 
     }
 
-
-
 //sign in
 }
 

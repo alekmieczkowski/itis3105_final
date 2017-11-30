@@ -1,7 +1,8 @@
 <?php
 
 //get all events
-$events=sql_getEvents();
+//$events=sql_getEvents();
+$userEvents=sql_getRegisteredEventsForUser2();
 
 
 
@@ -9,10 +10,10 @@ $events=sql_getEvents();
 <div class="row">
     <?php 
         #for each event get all necesarry data
-        foreach( $events as $event): 
+        foreach( $userEvents as $event):
         $e_id = $event['activityID'];
         $e_name = $event['a_name'];
-        //$e_desc = $event['description'];
+        $e_desc = $event['description'];
         //$e_price = $event['price'];
         //$e_age = $event['min_age'];
         $e_date = $event['a_date'];
@@ -27,6 +28,8 @@ $events=sql_getEvents();
         <div class="col-lg-3 col-md-4 col-xs-2 event-item">
             <h3 class="event-name text-center"><?php echo $e_name ?></h3>
             <h4 class="event-date text-center"><?php echo $date?></h4>
+
+
             <img class="event-img center-block" src="../db/img/<?php echo $e_img?>"/>
             <div class="event-buttons text-center">
                 <a class="event-button" href="../site/event.php?eventID=<?php echo $e_id; ?>">Details</a>
