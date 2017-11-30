@@ -1,4 +1,5 @@
-<?
+<?php
+
 #start session
 if (!isset($_SESSION))
 {
@@ -27,3 +28,4 @@ if(isset($_GET['disconnect'])){
     session_disconnect();
 
 }
+?>

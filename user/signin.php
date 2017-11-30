@@ -4,6 +4,7 @@ $current_dir = basename(dirname(__FILE__));
 $current_file = basename(__FILE__);
 include("../header.php");
 //session_start();
+//session_destroy();
 $error="";
 
 $flag=1;
@@ -42,7 +43,7 @@ if (isset($_POST['fName']))
 }
 
 if (isset($_POST['username'])&&isset($_POST['password']))
-{
+{echo 'wowo';
 
     #if it is sign up
     if(isset($_POST['confirmPassword'])){
@@ -54,9 +55,9 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
 
     foreach ($users  as $user)
-    {
+    {echo 'wowo';
         if ($user['username']==$_POST['username']&&$user['password']==$_POST['password'])
-        {
+        {echo 'wowo333';
             //check if remember me is set
             if (isset($_POST['rememberMe']))
             {
@@ -81,8 +82,9 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             }
             else
             {
-                echo "wowo";
+
                 header('Location: userHome.php');
+                //header('Location: test.php');
             }
         }
 
