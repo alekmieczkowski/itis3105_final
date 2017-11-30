@@ -8,7 +8,10 @@
 $current_dir = basename(dirname(__FILE__));
 $current_file = dirname(__FILE__);
 include("../header.php");
-session_start();
+
+#start session if its not on
+if(!isset($_SESSION))
+    session_start();
 
 
 #redirect if not logged in

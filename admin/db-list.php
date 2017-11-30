@@ -23,8 +23,14 @@ $table_col = sql_getColNames($table);
                     <tr class="filters">
                         <!--Adding columns based on cols in db-->
                         <?php
+                            $count = 0;
                             foreach($table_col as $col){
-                                echo '<th><input type="text" class="form-control" placeholder="'.$col.'" disabled></th>';
+                                switch($count){
+                                    case 0: echo '<th><input type="text" class="form-control" placeholder="ID" disabled></th>'; break;
+                                    default: echo '<th><input type="text" class="form-control" placeholder="'.$col.'" disabled></th>'; break;
+                                }
+                                
+                                $count++;
                             }
                         ?>
                     </tr>
@@ -38,11 +44,56 @@ $table_col = sql_getColNames($table);
                          echo '<tr>';
                          #add row items
                          for($x = 0; $x < count($table_col); $x++){
-                            echo '<td>'.$row[$table_col[$x]].'</td>';
+
+                            #if at isActive col
+                            if($table_col[$x] == 'isAdmin' || $table_col[$x] == 'isAdmin'){
+
+                                $result = '<td width="70px"><b>';
+                                
+                              
+
+                                #if active check is enabled (puts in checkbox)
+                                if($active_check){
+
+                                    #checks  if active and adds active flag if it is.
+                                    if($row[$table_col[$x]] == true)
+                                        $result.="YES";
+                                    else
+                                        $result.="NO";
+                                }
+
+                                $result.='</b></td>';
+                                
+                                #return result
+                                echo $result;
+
+                            }
+                            #if at any other col
+                            else{
+                                echo '<td>'.$row[$table_col[$x]].'</td>';
+                            }
                          }
+                         
+                         # edit button 
+                         $row_s = htmlentities(serialize($row));
+                         $col_s = htmlentities(serialize($table_col));
+                         echo '<td><form method="post" action="db-edit.php">';
+                         echo '<input type="submit" class="edit-button" value="Edit"/>';
+                         #sends serialized row data
+                         echo '<input type="hidden" name="row" value="'.$row_s.'"/>';
+                         #sends column names
+                         echo '<input type="hidden" name="col_names" value="'.$col_s.'"/>';
+                         #sends table name
+                         echo '<input type="hidden" name="table_name" value="'.$table_name.'"/>';
+
+                         echo '</form></td>';
+
+                         #end row
                          echo '</tr>';
 
                      }
+                     #reset active check after execution
+                     $active_check = false;
                     ?>
                 </tbody>
             </table>

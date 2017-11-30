@@ -1,0 +1,14 @@
+.input-box{
+    background-color: #ffca68;
+    border: 4px solid #eba123;
+    border-radius:4px;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.edit-button{
+    background-color: #eba123;
+    border: 3px solid #eba123;
+    border-radius: 6px;
+    color:white;
+}

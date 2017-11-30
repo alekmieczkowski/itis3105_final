@@ -1,18 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Mohamed
- * Date: 11/21/2017
- * Time: 1:22 PM
- *
- */
+
+ /*
+Edits Database Values for admin
+*/
+
+
 
 $current_dir = basename(dirname(__FILE__));
+$current_file = basename(__FILE__);
 include("../header.php");
 
+#get Variables
+$row = unserialize($_POST['row']);
+$col_names = unserialize($_POST['col_names']);
+
+#if edit is called
 if (isset($_POST['edit']))
 {
 sql_editEvent();
+$msg = "Update Succesfull!";
 }
 ?>
 

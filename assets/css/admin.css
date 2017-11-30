@@ -21,6 +21,7 @@
     border-right: 5px solid #ffca68;
     
 }
+
 .panel-left-header{
     font-size:40px;
     color:white;
@@ -49,6 +50,10 @@ tr{
 
 .panel-primary > .panel-heading{
     background-color: #eba123;
+}
+
+.table > thead > tr > th{
+    border-bottom: 2px solid #eba123;
 }
 
 .panel-title{
@@ -115,4 +120,12 @@ tr{
 }
 .filterable .filters input[disabled]:-ms-input-placeholder {
     color: #333;
+}
+
+/*edit button*/
+.edit-button{
+    background-color: #eba123;
+    border: 3px solid #eba123;
+    border-radius: 6px;
+    color:white;
 }

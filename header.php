@@ -39,6 +39,7 @@ if($current_dir == "admin"){
 
     //admin css
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/admin.css">';
+    echo '<link rel="stylesheet" type="text/css" href="../assets/css/db-edit.css">';
     //include sql stuff for admin
     
     include("db/user_sql.php");
