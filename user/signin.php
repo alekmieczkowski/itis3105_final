@@ -11,6 +11,7 @@ $flag=1;
 //register an account
 if (isset($_POST['fName']))
 {
+$_SESSION['wow']="wow";
     if ($_POST['password']!=$_POST['confirmPassword'])
     {
         echo '<html> Password and confirm password do not match</html>';
@@ -57,7 +58,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
     foreach ($users  as $user)
     {echo 'wowo';
         if ($user['username']==$_POST['username']&&$user['password']==$_POST['password'])
-        {echo 'wowo333';
+        {
             //check if remember me is set
             if (isset($_POST['rememberMe']))
             {
@@ -74,6 +75,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             }
 
             $_SESSION['userID']=$user['userID'];
+            $_SESSION['f_name']=$user['f_name'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
 
             if ($user['isAdmin']==1)

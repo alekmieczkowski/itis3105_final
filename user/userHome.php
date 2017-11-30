@@ -9,6 +9,8 @@ $current_dir = basename(dirname(__FILE__));
 $current_file = dirname(__FILE__);
 include("../header.php");
 
+$name=$_SESSION['userID'];
+
 //=======
 
 #start session if its not on
@@ -63,7 +65,7 @@ if (isset($_POST['regActivity']))
                 </a>
                 <!--Mail Button/ Labels-->
                 <div class="media-body">
-                    <h4 class="media-heading">Welcome <?php echo $_SESSION['username'] ?></h4>
+                    <h4 class="media-heading">Welcome <?php echo $_SESSION['userID'] ?></h4>
                     <span><img class="email" src="img/email.png"/></span>
                     <span class="label label-default">Member Since XX/XX/XX</span>
                 </div>

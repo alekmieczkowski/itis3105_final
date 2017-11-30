@@ -7,6 +7,19 @@ require_once ('../header.php');
 include("../db/event_sql.php");
 //get events
 $events = sql_getEvents();
+include ("../db/user_sql.php");
+$userEvents=sql_getRegisteredEventsForUser();
+
+
+
+    if (isset($_POST['register']))
+    {
+
+
+        sql_registerEvent($_SESSION['userID'],$_POST['register']);
+    }
+
+
 
 ?>
 <!--Insert Navbar-->
@@ -14,15 +27,11 @@ $events = sql_getEvents();
 
 
 
+
 <div class="container">
 
 			
 </div>
-
-
-
-
-
 
 
 <div class="container">
@@ -58,14 +67,23 @@ $events = sql_getEvents();
                       <img class="center-block event-img" src="img/logo.png" />	
                 </div>
                 <div class="details col-md-6">
+
+                    <form action="" method="post">
+
+
                     <h3 class="product-title event-name"><?php echo $e_name?></h3>
                     <h5 class="sizes event-date">Event Date: <strong><?php echo $date?></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Ages: <strong><?php echo $e_age?>+</strong>
                     </h5>
                     <p class="product-description event-description"><?php echo $e_desc?></p>
                     <h4 class="price event-price">Event Price: <span><?php echo $e_price?>$</span></h4>
                     <div class="action">
-                        <button class="event-button" type="button">Register</button>
+
+
+
+                        <button class="event-button" name="register" type="submit" value="<?php echo $e_id?> ">Register</button>
                     </div>
+
+                    </form>
                 </div>
             </div>
         </div>

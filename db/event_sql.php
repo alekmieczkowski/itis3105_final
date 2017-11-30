@@ -58,12 +58,13 @@ Register for event
 
 function sql_registerEvent($userID, $eventID){
     $db = db::getInstance();
-    $sql = "Insert into reg_activities (userID, regID) VALUES(".$userID.",".$eventID.")";
+    $sql = "Insert into reg_activities (userID, actID) VALUES(".$userID.",".$eventID.")";
     $stm=$db->prepare($sql);
     $stm->execute();
 
     return true;
 }
+
 
 /*
 Unregister for event
