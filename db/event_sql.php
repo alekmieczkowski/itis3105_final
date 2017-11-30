@@ -13,7 +13,6 @@ Admin SQL queries
 - Users can choose from different times and locations for a certain event
 
 */
-session_start();
 
 /*
 Get all Events
@@ -208,5 +207,54 @@ if(isset($_GET['imageBlob'])){
 
 
 
+/*updates any table with data supplied from array. 
+DATA ALWAYS CONTAINS ID 
+*/
+function sql_updateTable($data_s, $table_name){
+    $db=db::getInstance();
+    #Sql String
+    $sql="update ".$table_name." set";
+    
+    #deserialize Data
+    $data = unserialize($data_s);
 
+    #Get keys from associative data arr
+    $data_names = array_keys($data);
+
+    #row names that have value to update
+    $filtered_data = null;
+    #iterate through each value
+    for($x = 2; $x < count($data); $x++){
+        
+        #add data to string
+        $sql.= " ".$data_names[$x]."=?,";
+
+    }
+    #remove last comma and add Where statement
+    $sql = substr($sql, 0, -1);
+    #add where clause
+    $sql.=" WHERE ".$data["id"]."=?";
+
+    echo $sql;
+    echo " || Data: ".print_r($data);
+    //echo "|| Data_S: ".print_r($data_s);
+    #prepare sql statemnet
+    $stm1=$db->prepare($sql);
+
+    #apply bind for each value
+    
+    for($x = 0; $x < count($data)-2; $x++){
+        
+        #bind value
+        //echo 'BINDED VALUE: '.$data[$data_names[$x+2]];
+        $stm1->bindValue($x+1,$data[$data_names[$x+2]]);
+
+    }
+    echo "Data: ".$data["id"]." DataID: ".$data[$data["id"]];
+    #bind ID
+    $stm1->bindValue($x+1,$data[$data["id"]]);
+
+    #execute query
+    $stm1->execute();
+}
 ?>

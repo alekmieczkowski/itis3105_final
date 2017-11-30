@@ -32,6 +32,7 @@ if(!isset($_SESSION['userID'])){
         <div class="col-md-12 text-center">
             <h1>Admin Panel</h1>
         </div>
+</div>
     <div class="row panel-row center-block">
 
         <!--side panel-->
@@ -49,7 +50,7 @@ if(!isset($_SESSION['userID'])){
             </table>
         </div>
 
-        <!--Filler panel-->
+        <!--Blank Spacing panel-->
         <div class="col-md-1"></div>
 
         <!--Data panel-->
@@ -65,6 +66,8 @@ if(!isset($_SESSION['userID'])){
             <!--User Management-->
             <?php 
             $table_name="users";
+            //adds a checkbox as last col in db
+            $active_check = true;
             $table_data= sql_getUsers();
             include("db-list.php");
             ?>
@@ -73,8 +76,7 @@ if(!isset($_SESSION['userID'])){
             <?php 
             #$table_name="reg_activities";
             #$table_data= sql_getUsers();
-            //does not add a checkbox as last col in db
-            #$active_check = false;
+            
             #include("db-list.php");
             ?>
         </div>
