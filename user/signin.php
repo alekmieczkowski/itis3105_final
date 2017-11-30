@@ -73,9 +73,6 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             }
 
             $_SESSION['userID']=$user['userID'];
-            $_SESSION['username']=$user['username'];
-            $_SESSION['user_email']=$user['email'];
-            $_SESSION['age']=$user['age'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
 
             if ($user['isAdmin']==1)
@@ -84,8 +81,8 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             }
             else
             {
+                echo "wowo";
                 header('Location: userHome.php');
-
             }
         }
 
@@ -93,7 +90,6 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
 
 }
-
 
 ?>
 
@@ -154,7 +150,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                 <div class="col-md-12">
                     <input type="password" name="password" placeholder="password" value="<?php if (isset($_COOKIE['password']))echo $_COOKIE['password'];?>" required/>
                 </div>
-                <div class="col-md-12">   
+                <div class="col-md-12">
                 <input type="checkbox" class="remember-checkbox"  id="rememberMe" name="rememberMe"><label for="rememberMe"><span></span>Remember Me</label><!--<p class="checkbox-text">Remember Me</p>-->
                 </div>
             <div class="col-md-12">
