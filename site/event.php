@@ -17,6 +17,7 @@ foreach ($event as $ev)
     echo $ev['min_age'];
     echo $ev['a_date'];
     echo $ev['location'];
+    echo $ev['image'];
 }
 
 ?>

@@ -65,7 +65,7 @@ if (isset($_POST['regActivity']))
                 </a>
                 <!--Mail Button/ Labels-->
                 <div class="media-body">
-                    <h4 class="media-heading">Welcome <?php echo $_SESSION['userID'] ?></h4>
+                    <h4 class="media-heading">Welcome <?php echo $_SESSION['f_name'] ?></h4>
                     <span><img class="email" src="img/email.png"/></span>
                     <span class="label label-default">Member Since XX/XX/XX</span>
                 </div>
