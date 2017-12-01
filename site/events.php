@@ -8,7 +8,7 @@ include("../db/event_sql.php");
 //get events
 $events = sql_getEvents();
 include ("../db/user_sql.php");
-$userEvents=sql_getRegisteredEventsForUser();
+
 
 
 
@@ -16,11 +16,14 @@ $userEvents=sql_getRegisteredEventsForUser();
     {
 
 
-        sql_registerEvent($_SESSION['userID'],$_POST['register']);
+        //sql_registerEvent($_SESSION['userID'],$_POST['register']);
+        //sql_registerEvent($_SESSION['userID'],$_POST['register']);
+        sql_registerEvent($_SESSION['userID'],$_POST['register22']);
+
     }
 
 
-
+$registeredEvents=sql_getRegisteredEventsForUser();
 ?>
 <!--Insert Navbar-->
 <?php include("../navbar.php");?>
@@ -45,22 +48,10 @@ $userEvents=sql_getRegisteredEventsForUser();
     </div>
     <!--Row with all events outputed-->
     <div class="row">
-        <?php 
-            #for each event get all necesarry data
-            foreach( $events as $event ): 
-            $e_id = $event['activityID'];
-            $e_name = $event['a_name'];
-            $e_desc = $event['description'];
-            $e_price = $event['price'];
-            $e_age = $event['min_age'];
-            $e_date = $event['a_date'];
-            //$e_loc = $event['location'];
-            $e_img = $event['image'];
-            
-            #convert date
-            $date = str_replace('-','/',substr($e_date,0,10));
 
-            ?>
+                <?php foreach ($events as $event):?>
+
+
             <div class="container-fliud">
             <div class=" row wrapper">
                 <div class="col-md-6">
@@ -71,22 +62,62 @@ $userEvents=sql_getRegisteredEventsForUser();
                     <form action="" method="post">
 
 
-                    <h3 class="product-title event-name"><?php echo $e_name?></h3>
-                    <h5 class="sizes event-date">Event Date: <strong><?php echo $date?></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Ages: <strong><?php echo $e_age?>+</strong>
+                        <input type="hidden" value="<?php echo $event['activityID']?>" name="register22">
+
+
+                    <h3 class="product-title event-name"><?php echo $event['a_name']?></h3>
+                    <h5 class="sizes event-date">Event Date: <strong><?php echo $event['a_date']?></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Ages: <strong><?php echo $event['min_age']?>+</strong>
                     </h5>
-                    <p class="product-description event-description"><?php echo $e_desc?></p>
-                    <h4 class="price event-price">Event Price: <span><?php echo $e_price?>$</span></h4>
+                    <p class="product-description event-description"><?php echo $event['description']?></p>
+                    <h4 class="price event-price">Event Price: <span><?php echo $event['price']?>$</span></h4>
                     <div class="action">
 
 
 
-                        <button class="event-button" name="register" type="submit" value="<?php echo $e_id?> ">Register</button>
+                        <?php
+                        $flag=0;
+
+                        //checck throught registered events
+                        foreach ($registeredEvents as $registeredEvent):
+
+                            if ($registeredEvent['actID']==$event['activityID'])
+                            {
+
+                                echo '<button class="event-button" name="register" type="submit" value="<?php echo $event[\'activityID\']?> " disabled>Register</button>';
+                                $flag=1;
+                            }
+
+                            if ($flag==1)
+                            {
+                                break;
+                            }
+
+
+
+                            endforeach;
+
+                        if ($flag==0)
+                        {
+
+                            echo '<button class="event-button" name="register" type="submit" >Register</button>';
+
+
+                        }
+
+                        ?>
+
+
                     </div>
 
                     </form>
+
+
                 </div>
             </div>
         </div>
+
+
+
         <?php endforeach; ?>
     </div>
 </div>
