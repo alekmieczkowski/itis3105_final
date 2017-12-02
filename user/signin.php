@@ -76,6 +76,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
             $_SESSION['userID']=$user['userID'];
             $_SESSION['f_name']=$user['f_name'];
+            $_SESSION['member_since']=$user['member_since'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
 
             if ($user['isAdmin']==1)

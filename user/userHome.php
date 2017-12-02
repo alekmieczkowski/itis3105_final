@@ -67,7 +67,7 @@ if (isset($_POST['regActivity']))
                 <div class="media-body">
                     <h4 class="media-heading">Welcome <?php echo $_SESSION['f_name'] ?></h4>
                     <span><img class="email" src="img/email.png"/></span>
-                    <span class="label label-default">Member Since XX/XX/XX</span>
+                    <span class="label label-default">Member Since<?php echo " " .$_SESSION['member_since']?></span>
                 </div>
             </div>
         </div>

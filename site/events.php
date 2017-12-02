@@ -14,13 +14,33 @@ include ("../db/user_sql.php");
 
     if (isset($_POST['register']))
     {
+//
+//        ini_set('SMTP', "localhost");
+//        ini_set('smtp_port', "25");
+//        ini_set('sendmail_from', "mohaltanani@hotmail.com");
 
 
-        //sql_registerEvent($_SESSION['userID'],$_POST['register']);
-        //sql_registerEvent($_SESSION['userID'],$_POST['register']);
+
+
+        
         sql_registerEvent($_SESSION['userID'],$_POST['register22']);
 
+        $message="Welcome to out place";
+        $message=wordwrap($message,70);
+
+        $headers = 'From: <mohaltanani@hotmail.com>' . "\r\n";
+       // mail("moeltanani@hotmail.com","Hello", $message,$headers);
+
+
+
+
     }
+
+    $imm="../";
+    $imm2="images/bball.jpg";
+
+
+
 
 
 $registeredEvents=sql_getRegisteredEventsForUser();
@@ -52,6 +72,7 @@ $registeredEvents=sql_getRegisteredEventsForUser();
                 <?php foreach ($events as $event):?>
 
 
+
             <div class="container-fliud">
             <div class=" row wrapper">
                 <div class="col-md-6">
@@ -61,6 +82,7 @@ $registeredEvents=sql_getRegisteredEventsForUser();
 
                     <form action="" method="post">
 
+                        <img src="<?php echo $imm.$event['image']?>" width="150" height="150">
 
                         <input type="hidden" value="<?php echo $event['activityID']?>" name="register22">
 

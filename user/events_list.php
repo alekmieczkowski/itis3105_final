@@ -25,6 +25,8 @@ $userEvents=sql_getRegisteredEventsForUser2();
         $e_date = $event['a_date'];
         //$e_loc = $event['location'];
         $e_img = $event['image'];
+        $imm="../";
+
         
         #convert date
         $date = str_replace('-','/',substr($e_date,0,10));
@@ -33,10 +35,11 @@ $userEvents=sql_getRegisteredEventsForUser2();
         <!--Event Item-->
         <div class="col-lg-3 col-md-4 col-xs-2 event-item">
             <h3 class="event-name text-center"><?php echo $e_name ?></h3>
+
             <h4 class="event-date text-center"><?php echo $date?></h4>
 
 
-            <img class="event-img center-block" src="../db/img/<?php echo $e_img?>"/>
+            <img class="event-img center-block" src="<?php echo $imm.$e_img?>" width="150" height="150"/>
             <div class="event-buttons text-center">
                 <form action="" method="post">
 
