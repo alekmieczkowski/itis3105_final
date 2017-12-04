@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    /*Table Stuff*/
     $('.filterable .btn-filter').click(function(){
         var $panel = $(this).parents('.filterable'),
         $filters = $panel.find('.filters input'),
@@ -24,14 +26,15 @@ $(document).ready(function(){
         column = $panel.find('.filters th').index($input.parents('th')),
         $table = $panel.find('.table'),
         $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
+
+        /*Filter function*/
         var $filteredRows = $rows.filter(function(){
             var value = $(this).find('td').eq(column).text().toLowerCase();
             return value.indexOf(inputContent) === -1;
         });
         /* Clean previous no-result if exist */
         $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+        
         $rows.show();
         $filteredRows.hide();
         /* Prepend no-result row if all rows are filtered */
@@ -39,4 +42,29 @@ $(document).ready(function(){
             $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
         }
     });
+
+
+
+});
+
+
+//toggle between tables
+$('.db-button').on('click', function(){
+
+
+    var value = $(this).attr("name");
+    console.log("Value: "+value);
+    $('.db-button').each(function(){
+        if(value != $(this).attr("name")){
+            $id = '#'+$(this).attr("name");
+            $(this).removeClass("selected");
+            $($id).fadeOut(400);
+        }
+        
+    });
+    $id = '#'+value;
+    $($id).fadeIn(1300);
+    $(this).addClass("selected");
+
+    
 });

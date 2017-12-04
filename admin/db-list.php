@@ -11,9 +11,9 @@ $table_col = sql_getColNames($table);
 <p><?php 
 
 ?></p>
-<div class="panel panel-primary  table-responsive filterable">
+<div id="<?php echo $table_id;?>" class="panel panel-primary  table-responsive filterable">
             <div class="panel-heading">
-                <h3 class="panel-title">Users</h3>
+                <h3 class="panel-title"><?php echo $table_id;?></h3>
                 <div class="pull-right">
                     <button class="btn btn-default btn-xs btn-filter"><img class="filter-img" src="img/filter.gif"/></button>
                 </div>

@@ -36,10 +36,26 @@
     max-width:1200px;
 }
 
-
-tr{
-    border:2px solid #eba123;
+.db-button{
+    width:100%;
+    border:0;
+    border-top: 4px solid #ffca68;
+    background-color:#eba123;
+    outline:0;
+    transition:.6s all;
 }
+
+.selected{
+    background-color:#ffca68;
+}
+.db-button:hover{
+    background-color:#ffca68;
+}
+
+tr {
+    border-top: 2px solid #eba123;
+}
+
 
 .panel{
     border: 2px solid #eba123;

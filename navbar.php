@@ -19,11 +19,7 @@ function login_button(){
     else{
         #if session does not exist add Signin button
         echo '<li><form action="../user/signin.php">
-                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Login</button>
-              </form></li>
-    
-              <li><form action="../user/signin.php" >
-                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Signup</button>
+                <button name="logIn" class="navbar-items font-primary login-button" type="submit" value="LogIn">Sign In</button>
               </form></li>';
               
     }
