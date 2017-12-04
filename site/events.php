@@ -95,7 +95,7 @@ else
                     <h5 class="sizes event-date">Event Date: <strong><?php echo str_replace('-','/',substr($event['a_date'],0,10));?></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Ages: <strong><?php echo $event['min_age']?>+</strong>
                     </h5>
                     <p class="product-description event-description"><?php echo $event['description']?></p>
-                    <h4 class="price event-price">Event Price: <span><?php echo $event['price']?>$</span></h4>
+                    <h4 class="price event-price">Event Price: <b>$<?php echo $event['price']?></b></h4>
                     <div class="action">
 
 

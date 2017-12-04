@@ -25,9 +25,15 @@ $table_col = sql_getColNames($table);
                         <?php
                             $count = 0;
                             foreach($table_col as $col){
-                                switch($count){
-                                    case 0: echo '<th><input type="text" class="form-control" placeholder="ID" disabled></th>'; break;
-                                    default: echo '<th><input type="text" class="form-control" placeholder="'.$col.'" disabled></th>'; break;
+                                if($table_col[0] == "userID" && $col =="image")
+                                {
+
+                                }
+                                else{
+                                    switch($count){
+                                        case 0: echo '<th><input type="text" class="form-control" placeholder="ID" disabled></th>'; break;
+                                        default: echo '<th><input type="text" class="form-control" placeholder="'.$col.'" disabled></th>'; break;
+                                    }
                                 }
                                 
                                 $count++;

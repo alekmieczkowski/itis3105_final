@@ -47,7 +47,7 @@ $userEvents=sql_getRegisteredEventsForUser();
                 <form action=""  method="POST" enctype='multipart/form-data'>
 
 
-                <a class="event-button" href="../site/event.php?eventID=<?php echo $e_id; ?>">Details</a>
+                <!--<a class="event-button" href="../site/event.php?eventID=<?php echo $e_id; ?>">Details</a>-->
 
                     <input type="hidden" name="delete" value="<?php echo $regID?>">
                     <input class="event-button event-remove" type="submit" value="Delete">

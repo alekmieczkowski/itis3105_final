@@ -57,7 +57,7 @@ echo $col_names[0];
     //echo "|| UPDATES: ".print_r($updates);
     #sends off data to update function
     sql_updateTable(serialize($updates), $table_name);
-    //header("Location: ../admin/adminHome.php");
+    header("Location: ../admin/adminHome.php");
 
    // $msg = "Update Succesfull!";
 }

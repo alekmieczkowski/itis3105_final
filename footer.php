@@ -32,10 +32,10 @@ else if($current_dir == "admin"){
                 
 				<div class="footer-icons">
 
-					<a href="#"><i class="fa fa-facebook fa-2x "></i></a>
-					<a href="#"><i class="fa fa-twitter fa-2x "></i></a>
-					<a href="#"><i class="fa fa-linkedin fa-2x "></i></a>
-					<a href="#"><i class="fa fa-github fa-2x "></i></a>
+					<a href="www.facebook.com"><i class="fa fa-facebook fa-2x "></i></a>
+					<a href="www.twitter.com"><i class="fa fa-twitter fa-2x "></i></a>
+					<a href="wwww.linkedin.com"><i class="fa fa-linkedin fa-2x "></i></a>
+					<a href="https://github.com/amieczko/itis3105_final"><i class="fa fa-github fa-2x "></i></a>
 
                 </div>
                 
