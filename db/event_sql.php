@@ -27,6 +27,17 @@ function sql_getEvents(){
     return $events;
 }
 
+function sql_getEvent($eventID){
+
+    $db = db::getInstance();
+    $stm=$db->prepare("select * from activities WHERE activityID=?");
+    $stm->bindValue(1,$eventID);
+    $stm->execute();
+    $events=$stm->fetchAll();
+
+    return $events;
+}
+
 /*
 Get Event image
 */
