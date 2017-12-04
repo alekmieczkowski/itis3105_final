@@ -24,18 +24,34 @@ if (isset($_POST['edit']))
     //echo "ID NAME: ".$col_names[0]." ID: ".$row[$col_names[0]]." COL NAMES: ";
 #set ID
 $updates[$col_names[0]] = $row[$col_names[0]];
-    #loop through each col check if theres update needed 
-    foreach($col_names as $name){
-        //echo "Colname: ".$name."   "; 
-        //echo "ColVal: ".$_POST[$name]."   "; 
-        #if submitted value is not empty add written in values to array
-        if(!empty($_POST[$name]) || $_POST[$name]=='0' ){
-            #array { col_name => col_value}
-            $updates[$name] = $_POST[$name];
-            //echo "ColVal Saved: ".$updates[$name] ."   "; 
-        }
+    #check for values to update
+    foreach($col_names as $col_name){
+        
+                #if image upload
+                if($col_name == "image" && isset($_FILES[$col_name]) && count($_FILES[$col_name]['error']) == 1){
+                    $target_dir = "images/";
+                    
+                    $target_file = $target_dir . basename($_FILES[$col_name]["name"]);
+                    $upload_path ="../images/".basename($_FILES[$col_name]["name"]);                                   
+                    move_uploaded_file($_FILES[$col_name]["tmp_name"], '../'.$target_file);       
+                
+                #all other fields
+                    #data = {col_name => col_value}
+                    $updates[$col_name] = $target_file;
+                        
+                }
+                #if val is not empty
+                else if(!empty($_POST[$col_name])){
+        
+                    
+                    
+                        #data = {col_name => col_value}
+                        $updates[$col_name] = $_POST[$col_name];
 
-    }
+                    
+                }
+                
+            }
     
     //echo "|| UPDATES: ".print_r($updates);
     #sends off data to update function
@@ -77,7 +93,7 @@ $updates[$col_names[0]] = $row[$col_names[0]];
     <!--Edit box-->
     <div class="col-md-8" >
         <!--Start form-->
-        <form action="" name="update" method="post">
+        <form action="" name="update" method="post" enctype="multipart/form-data">
             <div class="row center-block">
                 <!--Render Out Inputs-->
                 <?php
@@ -102,6 +118,11 @@ $updates[$col_names[0]] = $row[$col_names[0]];
                         echo '<input type="hidden" name="'.$col_names[$iterator].'" value="0">';
                         echo '<input type="checkbox" name="'.$col_names[$iterator].'" value="1"'.($row[$iterator]==1 ? 'checked' : '').'><br>';
                         
+                    }
+                    #image upload
+                    else if($col_names[$iterator]=="image"){
+                        echo '<img height="200px" width="300px" src="..//'.$row[$iterator].'">';
+                        echo '<input type="file" class="input-box" placeholder="'.$row[$iterator].'" name="'.$col_names[$iterator].'"><br>';
                     }
                     #everything else
                     else{

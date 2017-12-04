@@ -80,7 +80,7 @@ else
             <div class="container-fliud">
             <div class=" row wrapper">
                 <div class="col-md-6">
-                      <img class="center-block event-img" src="<?php echo $imm.$event['image']?>" />	
+                      <img class="center-block event-img" src="../<?php echo $event['image']?>" />	
                 </div>
                 <div class="details col-md-6">
 
