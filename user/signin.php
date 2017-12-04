@@ -134,13 +134,13 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                         <div class="control__indicator"></div>
                     </label>&nbsp&nbsp&nbsp&nbsp&nbsp
                     <label  class="control control--radio" >User
-                    <input type="checkbox" name="role" id="check-user" value="0" >
+                    <input type="checkbox" name="role" id="check-user" value="0">
                     <div class="control__indicator"></div>
                     </label>
                 </div>
                 <div class="col-sm-6">
                     <input type="email" placeholder="Email Address" name="email" required><br>
-                    <input type="submit"  class="submit-button" value="Sign Up">
+                    <input type="submit" class="submit-button" value="Sign Up">
                 </div>
             </div>
             <p class="message">Already registered? <a href="#">Sign In</a></p>

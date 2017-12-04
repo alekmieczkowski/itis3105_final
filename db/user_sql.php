@@ -71,10 +71,15 @@ Return true if it does exist, false if it does not
 function sql_checkIfExists($table_name, $col_name, $value){
     try{
         $db = db::getInstance();
-        $sql = "Select * from ".$table_name." where ".$col_name."='".$value."'";
+        $sql = "SELECT * FROM ".$table_name." WHERE ".$col_name."='".$value."'";
         $stm=$db->prepare($sql);
         $stm->execute();
-        return true;
+        
+        #check for empty rows
+        if($stm->rowCount() > 0)
+            return true;
+        else
+            return false;
     }
     catch(SQLException $e){
         return false;
@@ -85,28 +90,34 @@ function sql_checkIfExists($table_name, $col_name, $value){
 User Ajax calls
 */
 
-if(isset($_POST['action']))
+if(isset($_GET['action']))
 {
-    $result = true;
+
     #check email
-    if($_POST['action'] == "checkEmail"){
+    if($_GET['action'] == "checkEmail"){
 
         #if email exists
-        if(sql_checkIfExists("users", "email", $_POST['value'])){
-            $result = false; 
+        if(sql_checkIfExists("users", "email", $_GET['value'])){
+           echo false;
         }
+        else
+            echo true;
 
     }
+    
     #check username
-    if($_POST['action'] == "checkUsername"){
+    if($_GET['action'] == "checkUsername"){
+
         #if email exists
-        if(sql_checkIfExists("users", "username", $_POST['value'])){
-            $result = false; 
+        if(sql_checkIfExists("users", "username", $_GET['value'])){
+           echo false;
         }
+        else
+            echo true;
+
     }
 
-    #return info
-    echo $result; 
+    
 }
 
 
