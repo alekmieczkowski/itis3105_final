@@ -49,11 +49,7 @@ table, th, td {
     background-color:#ffca68;
     color:#7e4412;
 }
-@media only screen and (max-width: 768px) {
-    .row-top {
-        margin-top:20px;
-    }
-}
+
 
 .profile-div{
     min-width:350px;
@@ -100,6 +96,8 @@ table, th, td {
 @media only screen and (max-width:1079px){
     .profile-div{
         margin-bottom:20px;
+        position: relative;
+        z-index: 1;
     }
 }
 

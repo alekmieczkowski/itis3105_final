@@ -21,28 +21,28 @@ if (isset($_POST['edit']))
     #create array with all inputs. Add ID to first line
     $updates["id"] = $col_names[0];
     
-    //echo "ID NAME: ".$col_names[0]." ID: ".$row[$col_names[0]]." COL NAMES: ";
+    echo "ID NAME: ".$col_names[0]." ID: ".$row[$col_names[0]]." COL NAMES: ";
 #set ID
-$updates[$col_names[0]] = $row[$col_names[0]]; //SET TO ID
+$updates[$col_names[0]] = $row[$col_names[0]];
     #loop through each col check if theres update needed 
     foreach($col_names as $name){
-        echo "Colname: ".$name."   "; 
-        echo "ColVal: ".$_POST[$name]."   "; 
+        //echo "Colname: ".$name."   "; 
+        //echo "ColVal: ".$_POST[$name]."   "; 
         #if submitted value is not empty add written in values to array
         if(!empty($_POST[$name]) || $_POST[$name]=='0' ){
             #array { col_name => col_value}
             $updates[$name] = $_POST[$name];
-            echo "ColVal Saved: ".$updates[$name] ."   "; 
+            //echo "ColVal Saved: ".$updates[$name] ."   "; 
         }
 
     }
     
-    echo "|| UPDATES: ".print_r($updates);
+    //echo "|| UPDATES: ".print_r($updates);
     #sends off data to update function
     sql_updateTable(serialize($updates), $table_name);
-    header("Location: ../admin/adminHome.php");
+    //header("Location: ../admin/adminHome.php");
 
-    $msg = "Update Succesfull!";
+   // $msg = "Update Succesfull!";
 }
 ?>
 <!--Insert Navbar-->

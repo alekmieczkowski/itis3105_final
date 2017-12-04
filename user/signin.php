@@ -44,7 +44,7 @@ $_SESSION['wow']="wow";
 }
 
 if (isset($_POST['username'])&&isset($_POST['password']))
-{echo 'wowo';
+{
 
     #if it is sign up
     if(isset($_POST['confirmPassword'])){
@@ -56,7 +56,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
 
 
     foreach ($users  as $user)
-    {echo 'wowo';
+    {
         if ($user['username']==$_POST['username']&&$user['password']==$_POST['password'])
         {
             //check if remember me is set
@@ -73,11 +73,16 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                 setcookie('password',$_POST['password'],time()-31536000);
 
             }
-
             $_SESSION['userID']=$user['userID'];
             $_SESSION['f_name']=$user['f_name'];
+            $_SESSION['l_name']=$user['l_name'];
+            $_SESSION['username']=$user['username'];
+            $_SESSION['email']=$user['email'];
+            $_SESSION['phone']=$user['phone'];
+            $_SESSION['age']=$user['age'];
             $_SESSION['member_since']=$user['member_since'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
+            
 
             if ($user['isAdmin']==1)
             {

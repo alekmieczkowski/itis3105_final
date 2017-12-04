@@ -50,30 +50,16 @@ if (isset($_POST['regActivity']))
     </div>
     <div class="row">
         
-        <!--Profile Stuff-->
-        <div class="col-md-3  col-md-offset-2 col-xs-12 text-center profile-div">
-            <div class="col-xs-12 text-center">
-                <h2>Profile</h2>
-            </div>
-            <!--Profile Image-->
-            <div class="media">
-                <!--email-->
-                
+        <!--Profile-->
 
-                    <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
-              
-                <!--Mail Button/ Labels-->
-                <div class="media-body">
-                    <h4 class="media-heading">Welcome <?php echo $_SESSION['f_name'] ?></h4>
-                    <a href="#"><span><img class="email" src="img/email.png"/></span></a>
-                    <span class="label label-default">Member Since<?php echo " " .$_SESSION['member_since']?></span>
-                </div>
-            </div>
+        <div class="col-md-3  col-md-offset-2 col-xs-12 text-center profile-div">
+            <?php include("profile.php");?>
+            
         </div>
 
 
 
-
+        <!--User Events List-->
         <div class="col-md-6">
             <?php include("events_list.php");?>
         </div>

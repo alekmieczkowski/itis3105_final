@@ -247,8 +247,8 @@ function sql_updateTable($data_s, $table_name){
     #add where clause
     $sql.=" WHERE ".$data["id"]."=?";
 
-    echo $sql;
-    echo " || Data: ".print_r($data);
+    //echo $sql;
+    //echo " || Data: ".print_r($data);
     //echo "|| Data_S: ".print_r($data_s);
     #prepare sql statemnet
     $stm1=$db->prepare($sql);
@@ -262,7 +262,7 @@ function sql_updateTable($data_s, $table_name){
         $stm1->bindValue($x+1,$data[$data_names[$x+2]]);
 
     }
-    echo "Data: ".$data["id"]." DataID: ".$data[$data["id"]];
+    //echo "Data: ".$data["id"]." DataID: ".$data[$data["id"]];
     #bind ID
     $stm1->bindValue($x+1,$data[$data["id"]]);
 
