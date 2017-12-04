@@ -15,6 +15,7 @@ $table_col = sql_getColNames($table);
             <div class="panel-heading">
                 <h3 class="panel-title"><?php echo $table_id;?></h3>
                 <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><a href="db-add.php?id=<?php echo $table_id?>"><img class="filter-img" src="img/add.gif"/></a></button>
                     <button class="btn btn-default btn-xs btn-filter"><img class="filter-img" src="img/filter.gif"/></button>
                 </div>
             </div>
