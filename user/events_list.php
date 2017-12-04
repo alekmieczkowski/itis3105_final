@@ -9,7 +9,7 @@ if (isset($_POST['delete']))
 {
     sql_delEvent($_POST['delete']);
 }
-$userEvents=sql_getRegisteredEventsForUser2();
+$userEvents=sql_getRegisteredEventsForUser();
 
 ?>
 <div class="row">
@@ -19,7 +19,7 @@ $userEvents=sql_getRegisteredEventsForUser2();
     <?php 
         #for each event get all necesarry data
         foreach( $userEvents as $event):
-            $regID=$event['regID'];
+        $regID=$event['regID'];
         $e_id = $event['activityID'];
         $e_name = $event['a_name'];
         $e_desc = $event['description'];

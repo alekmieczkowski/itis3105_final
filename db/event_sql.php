@@ -18,14 +18,14 @@ Admin SQL queries
 Get all Events
 */
 function sql_getEvents(){
-
-    $db = db::getInstance();
-    $stm=$db->prepare("select * from activities");
-    $stm->execute();
-    $events=$stm->fetchAll();
-
-    return $events;
-}
+    
+        $db = db::getInstance();
+        $stm=$db->prepare("select * from activities");
+        $stm->execute();
+        $events=$stm->fetchAll();
+    
+        return $events;
+    }
 
 function sql_getEvent($eventID){
 
@@ -122,7 +122,7 @@ function sql_getUserEvents(){
 }
 
 
-function sql_getRegisteredEventsForUser2(){
+function sql_getRegisteredEventsForUser(){
     $userID=$_SESSION['userID'];
 
 

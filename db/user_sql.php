@@ -28,18 +28,7 @@ function sql_getUsers(){
     return $users;
 }
 
-function sql_getRegisteredEventsForUser(){
-    $userID=$_SESSION['userID'];
 
-    $db = db::getInstance();
-    $sql = "Select * from reg_activities where userID=".$userID;
-    $stm=$db->prepare($sql);
-    $stm->execute();
-    $events=$stm->fetchAll();
-
-    return $events;
-
-}
 
 
 
@@ -104,7 +93,7 @@ if(isset($_GET['action']))
             echo true;
 
     }
-    
+
     #check username
     if($_GET['action'] == "checkUsername"){
 

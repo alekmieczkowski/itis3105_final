@@ -64,7 +64,7 @@ else if($current_dir == "user"){
 }
 else if($current_dir == "site"){
     #site section
-    
+
     //include css
     echo '<link rel="stylesheet" type="text/css" href="../assets/css/site.css">';
 }

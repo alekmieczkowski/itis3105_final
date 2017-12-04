@@ -42,8 +42,12 @@ include ("../db/user_sql.php");
 
 
 
-
+$registeredEvents=null;
+if(isset($_SESSION['userID'])){
 $registeredEvents=sql_getRegisteredEventsForUser();
+}
+else
+    $registeredEvents=sql_getEvents();
 ?>
 <!--Insert Navbar-->
 <?php include("../navbar.php");?>
@@ -100,32 +104,35 @@ $registeredEvents=sql_getRegisteredEventsForUser();
                         $flag=0;
 
                         //checck throught registered events
-                        foreach ($registeredEvents as $registeredEvent):
+                        if(isset($_SESSION['userID'])){
+                            foreach ($registeredEvents as $registeredEvent):
 
-                            if ($registeredEvent['actID']==$event['activityID'])
+                                if ($registeredEvent['actID']==$event['activityID'])
+                                {
+
+                                    echo '<button class="event-button event-button-registered" name="register" type="submit" value="<?php echo $event[\'activityID\']?> " disabled>Already Registered!</button>';
+                                    $flag=1;
+                                }
+
+                                if ($flag==1)
+                                {
+                                    break;
+                                }
+
+
+
+                                endforeach;
+
+                            if ($flag==0)
                             {
 
-                                echo '<button class="event-button event-button-registered" name="register" type="submit" value="<?php echo $event[\'activityID\']?> " disabled>Already Registered!</button>';
-                                $flag=1;
+                                echo '<button class="event-button" name="register" type="submit" >Register</button>';
+
+
                             }
-
-                            if ($flag==1)
-                            {
-                                break;
-                            }
-
-
-
-                            endforeach;
-
-                        if ($flag==0)
-                        {
-
-                            echo '<button class="event-button" name="register" type="submit" >Register</button>';
-
-
                         }
-
+                        else
+                            echo '<a href="../user/signin.php"><button class="event-button event-button-registered" name="register" type="submit" disabled >Sign in to Register</button></a>';
                         ?>
 
 
