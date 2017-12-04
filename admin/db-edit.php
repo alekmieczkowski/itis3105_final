@@ -24,6 +24,7 @@ if (isset($_POST['edit']))
     //echo "ID NAME: ".$col_names[0]." ID: ".$row[$col_names[0]]." COL NAMES: ";
 #set ID
 $updates[$col_names[0]] = $row[$col_names[0]];
+echo $col_names[0];
     #check for values to update
     foreach($col_names as $col_name){
         
@@ -56,7 +57,7 @@ $updates[$col_names[0]] = $row[$col_names[0]];
     //echo "|| UPDATES: ".print_r($updates);
     #sends off data to update function
     sql_updateTable(serialize($updates), $table_name);
-    header("Location: ../admin/adminHome.php");
+    //header("Location: ../admin/adminHome.php");
 
    // $msg = "Update Succesfull!";
 }
@@ -109,24 +110,33 @@ $updates[$col_names[0]] = $row[$col_names[0]];
 
                     }
                     
-                    #echo inputs and stuff
-                    echo '<h2>'.$col_names[$iterator].'</h2>';
+                    
                     //echo '      '.gettype($row[$iterator]);
                     #if bool and bypasses userID
                     if($col_names[$iterator]=="isAdmin" || $col_names[$iterator] == "isActive")
                     {
+                        #echo inputs and stuff
+                        echo '<h2>'.$col_names[$iterator].'</h2>';
                         echo '<input type="hidden" name="'.$col_names[$iterator].'" value="0">';
                         echo '<input type="checkbox" name="'.$col_names[$iterator].'" value="1"'.($row[$iterator]==1 ? 'checked' : '').'><br>';
                         
                     }
                     #image upload
-                    else if($col_names[$iterator]=="image"){
+                    else if($col_names[$iterator]=="image" && $col_names[0] !="userID"){
+                        #echo inputs and stuff
+                        echo '<h2>'.$col_names[$iterator].'</h2>';
                         echo '<img height="200px" width="300px" src="..//'.$row[$iterator].'">';
                         echo '<input type="file" class="input-box" placeholder="'.$row[$iterator].'" name="'.$col_names[$iterator].'"><br>';
                     }
                     #everything else
                     else{
-                        echo '<input type="text" class="input-box" placeholder="'.$row[$iterator].'" name="'.$col_names[$iterator].'"><br>';
+                        if($col_names[$iterator]=="image" && $col_names[0] =="userID"){}
+                        else{
+                            #echo inputs and stuff
+                            echo '<h2>'.$col_names[$iterator].'</h2>';
+                            echo '<input type="text" class="input-box" placeholder="'.$row[$iterator].'" name="'.$col_names[$iterator].'"><br>';
+                        }
+                           
                     }
                     
                     

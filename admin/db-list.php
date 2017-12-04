@@ -68,6 +68,10 @@ $table_col = sql_getColNames($table);
                                 echo $result;
 
                             }
+                            #if userID and image 
+                            else if($table_col[$x] == 'image' && $table_col[0] == 'userID'){
+
+                            }
                             #if at any other col
                             else{
                                 echo '<td>'.$row[$table_col[$x]].'</td>';
