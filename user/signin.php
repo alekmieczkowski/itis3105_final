@@ -109,9 +109,10 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             <div class="col-sm-6 text-center">
             <img class="logo-text"src="../site/img/logo-text.png"/>
             </div>
+            <div class="col-sm-12" id="errors"></div>
         </div>
         <!--Sign up-->
-        <form class="register-form" method="post" action="">
+        <form name="signin" class="register-form" method="post" action="">
             <div class="row">
                 <div class="col-md-6 col-xs-12 .visible-sm-block, hidden-sm">
                     <input type="text" placeholder="First Name" name="fName" required><br>
@@ -137,7 +138,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
                     </label>
                 </div>
                 <div class="col-sm-6">
-                    <input type="email" placeholder="Email Address" name="email"><br>
+                    <input type="email" placeholder="Email Address" name="email" required><br>
                     <input type="submit"  class="submit-button" value="Sign Up">
                 </div>
             </div>

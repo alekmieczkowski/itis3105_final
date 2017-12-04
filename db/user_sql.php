@@ -43,6 +43,7 @@ function sql_getRegisteredEventsForUser(){
 
 
 
+
 function sql_userSignup()
 {
     $db = db::getInstance();
@@ -62,12 +63,50 @@ VALUES (?,?,?,?,?,?,?,?)");
 
 }
 
+/*
+check if obj exists in db
+Return true if it does exist, false if it does not
+*/
+function sql_checkIfExists($table_name, $col_name, $value){
+    try{
+        $db = db::getInstance();
+        $sql = "Select * from ".$table_name." where ".$col_name."='".$value."'";
+        $stm=$db->prepare($sql);
+        $stm->execute();
+        return true;
+    }
+    catch(SQLException $e){
+        return false;
+    }
+}
 
 /*
-Check if user exists in db
+User Ajax calls
 */
 
+if(isset($_POST['action']))
+{
+    $result = true;
+    #check email
+    if($_POST['action'] == "checkEmail"){
 
+        #if email exists
+        if(sql_checkIfExists("users", "email", $_POST['value'])){
+            $result = false; 
+        }
+
+    }
+    #check username
+    if($_POST['action'] == "checkUsername"){
+        #if email exists
+        if(sql_checkIfExists("users", "username", $_POST['value'])){
+            $result = false; 
+        }
+    }
+
+    #return info
+    echo $result; 
+}
 
 
 ?>
