@@ -8,15 +8,30 @@ include("../header.php");
 
 $id = $_GET['id'];
 
+echo $id;
+
 #if data submitted
 if(isset($_POST['add'])){
-    if($id = "users"){
+    
+    if($id == "users"){
 
         if(!isset($_POST['role'])){
             $_POST['role'] = 0;
         }
         #add user
         sql_userSignup();
+        header("Location: adminHome.php");
+    }
+    else if($id== "events"){
+        #add events
+        $target_dir = "images/";
+        
+        $target_file = $target_dir . basename($_FILES['image']["name"]);
+        $upload_path ="../images/".basename($_FILES['image']["name"]);                                   
+        move_uploaded_file($_FILES['image']["tmp_name"], '../'.$target_file);
+        $_POST['image']= $target_dir.$_POST['image'];
+        echo "In Events add";
+        sql_addEvent();
         header("Location: adminHome.php");
     }
 }
@@ -53,13 +68,19 @@ if(isset($_POST['add'])){
                     <!--Price-->
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <h2>Price</h2>
-                        <input type="text" class="input-box" name="price" required>
+                        <input type="number" class="input-box" name="price" required>
                     </div>
 
                     <!--Min Age-->
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <h2>Age</h2>
                         <input type="number" class="input-box" name="age" required>
+                    </div>
+
+                    <!--Min Age-->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <h2>Date</h2>
+                        <input type="date" class="input-box" name="date" required>
                     </div>
 
                     <!--Location-->
@@ -71,7 +92,7 @@ if(isset($_POST['add'])){
                     <!--Image-->
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <h2>Image</h2>
-                        <input type="file" class="input-box" name="image" required>
+                        <input type="file" class="input-box" style="width:100%" name="image" required>
                     </div>
                 <?php endif;?>
 

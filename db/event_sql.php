@@ -38,6 +38,21 @@ function sql_getEvent($eventID){
     return $events;
 }
 
+function sql_addEvent()
+{
+    $db=db::getInstance();
+    $stm=$db->prepare("insert into activities (a_name, description,price,min_age,a_date,location,image) VALUES (?,?,?,?,?,?,?)");
+    $stm->bindValue(1,$_POST['a_name']);
+    $stm->bindValue(2,$_POST['description']);
+    $stm->bindValue(3,$_POST['price']);
+    $stm->bindValue(4,$_POST['age']);
+    $stm->bindValue(5,$_POST['date']);
+    $stm->bindValue(6,$_POST['location']);
+    $stm->bindValue(7,$_POST['image']);
+    $stm->execute();
+
+}
+
 /*
 Get Event image
 */
