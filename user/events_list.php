@@ -44,7 +44,7 @@ $userEvents=sql_getRegisteredEventsForUser();
 
             <img class="event-img center-block" src="<?php echo $imm.$e_img?>" width="200" height="150"/>
             <div class="event-buttons text-center">
-                <form action="" method="post">
+                <form action=""  method="POST" enctype='multipart/form-data'>
 
 
                 <a class="event-button" href="../site/event.php?eventID=<?php echo $e_id; ?>">Details</a>

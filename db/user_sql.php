@@ -36,8 +36,8 @@ function sql_getUsers(){
 function sql_userSignup()
 {
     $db = db::getInstance();
-    $stm1 = $db->prepare("insert into users (username, f_name, l_name,password,email,phone, age,member_since, isAdmin)
-VALUES (?,?,?,?,?,?,?,?,?)");
+    $stm1 = $db->prepare("insert into users (username, f_name, l_name,password,email,phone, age,member_since, isAdmin, image)
+VALUES (?,?,?,?,?,?,?,?,?,'img/default.png')");
     $stm1->bindValue(1, $_POST['userName']);
     $stm1->bindValue(2, $_POST['fName']);
     $stm1->bindValue(3, $_POST['lName']);

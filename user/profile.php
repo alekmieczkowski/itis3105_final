@@ -5,21 +5,39 @@ if (isset($_POST['update'])){
     $data["id"] = 'userID';
     $data["userID"] = $_SESSION['userID'];
     #diry way of doin' it
-    $col_names = ["username","f_name","l_name", "password", "email", "phone", "age"];
+    $col_names = ["username","f_name","l_name", "password", "email", "phone", "age","image"];
     
     #check for values to update
     foreach($col_names as $col_name){
 
-        #if val is not empty
-        if(!empty($_POST[$col_name])){
-            #data = {col_name => col_value}
-            $data[$col_name] = $_POST[$col_name];
+        #if image upload
+        if($col_name == "image" && isset($_FILES[$col_name]) && count($_FILES[$col_name]['error']) == 1){
+            $target_dir = "img/";
             
+            $target_file = $target_dir . basename($_FILES[$col_name]["name"]);                                        
+            move_uploaded_file($_FILES[$col_name]["tmp_name"], $target_file);       
+        
+        #all other fields
+            #data = {col_name => col_value}
+            $data[$col_name] = $target_file;
+                
             #update session
-            $_SESSION[$col_name] = $_POST[$col_name];
+            $_SESSION[$col_name] = $target_file;
         }
-    }
+        #if val is not empty
+        else if(!empty($_POST[$col_name])){
 
+            
+            
+                #data = {col_name => col_value}
+                $data[$col_name] = $_POST[$col_name];
+                
+                #update session
+                $_SESSION[$col_name] = $_POST[$col_name];
+            
+        }
+        
+    }
     #set table name
     $table_name = "users";
 
@@ -56,6 +74,7 @@ div#update > form > div > input[type="submit"]{
     margin-top:20px;
 }
 
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #7e4412;
   }
@@ -78,19 +97,19 @@ div#update > form > div > input[type="submit"]{
 <!--Profile Image-->
 <div class="media">
     <!--email-->
-    <img class="media-object dp img-circle center-block" src="img/email.png" style="width: 200px;height:200px;">
+    <img class="media-object dp img-circle center-block" src="<?php echo $_SESSION['image'];?>" style="width: 200px;height:200px;">
      
     <!--Mail Button/ Labels-->
         <div class="media-body">
             <h4 class="media-heading">Welcome <?php echo $_SESSION['f_name'] ?></h4>
-            <a id="showUpdate" href="#"><span><img class="email" src="img/gear.png"/></span></a>
+            <a id="showUpdate" href="#"><span><img class="email" src="img/gear-icon.png"/></span></a>
             <span class="label label-default">Member Since<?php echo " " .$_SESSION['member_since']?></span>
         </div>
 </div>
 
 <!--Update User Form-->
-<div class="row" id="update">
-    <form action="" name="update" method="post">
+<div class="row"  id="update">
+    <form action="" name="update" method="POST" enctype="multipart/form-data">
 
         <div class="col-md-6 col-sm-12">
             <h3>Email</h3>
@@ -112,7 +131,11 @@ div#update > form > div > input[type="submit"]{
             <h3>Age</h3>
             <input type="number" name="age" placeholder="<?php echo $_SESSION['age'];?>">
         </div>
-        <div class="col-md-6 col-sm-12 text-center">
+        <div class="col-md-6 col-sm-12">
+            <h3>Profile Picture</h3>
+            <input type="file" name="image"  id="image"  style="width:100%;"/>
+        </div>
+        <div class="col-md-6 col-sm-12 ">
             <input type="submit" name="update" value="Update">
         </div>
     </form>

@@ -82,6 +82,7 @@ if (isset($_POST['username'])&&isset($_POST['password']))
             $_SESSION['age']=$user['age'];
             $_SESSION['member_since']=$user['member_since'];
             $_SESSION['isAdmin'] = $user['isAdmin'];
+            $_SESSION['image'] = $user['image'];
             
 
             if ($user['isAdmin']==1)
