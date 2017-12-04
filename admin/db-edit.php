@@ -21,7 +21,7 @@ if (isset($_POST['edit']))
     #create array with all inputs. Add ID to first line
     $updates["id"] = $col_names[0];
     
-    echo "ID NAME: ".$col_names[0]." ID: ".$row[$col_names[0]]." COL NAMES: ";
+    //echo "ID NAME: ".$col_names[0]." ID: ".$row[$col_names[0]]." COL NAMES: ";
 #set ID
 $updates[$col_names[0]] = $row[$col_names[0]];
     #loop through each col check if theres update needed 
@@ -40,7 +40,7 @@ $updates[$col_names[0]] = $row[$col_names[0]];
     //echo "|| UPDATES: ".print_r($updates);
     #sends off data to update function
     sql_updateTable(serialize($updates), $table_name);
-    //header("Location: ../admin/adminHome.php");
+    header("Location: ../admin/adminHome.php");
 
    // $msg = "Update Succesfull!";
 }
@@ -77,7 +77,7 @@ $updates[$col_names[0]] = $row[$col_names[0]];
     <!--Edit box-->
     <div class="col-md-8" >
         <!--Start form-->
-        <form action="" method="post">
+        <form action="" name="update" method="post">
             <div class="row center-block">
                 <!--Render Out Inputs-->
                 <?php

@@ -68,3 +68,25 @@ $('.db-button').on('click', function(){
 
     
 });
+//on form submit db-edit
+$('form[name="update"]').submit(function(e) {
+    
+
+        var validated = false;
+
+        $('form[name="update"] input').each(function() {
+            //save this input in var
+            var element = $(this);
+            console.log("Element: "+element.val());
+            //check if empty and exclude update button
+            if (element.val() != "" && element.val() != "Update" && element.val() != $(this).attr("value")) {
+                validated = true;
+                return false;
+            }
+        });
+        console.log("Validated: "+validated);
+        //if validation fails somewhere, prevent default
+        if(!validated)
+            e.preventDefault();
+    
+    });
