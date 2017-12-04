@@ -76,19 +76,19 @@ $registeredEvents=sql_getRegisteredEventsForUser();
             <div class="container-fliud">
             <div class=" row wrapper">
                 <div class="col-md-6">
-                      <img class="center-block event-img" src="img/logo.png" />	
+                      <img class="center-block event-img" src="<?php echo $imm.$event['image']?>" />	
                 </div>
                 <div class="details col-md-6">
 
                     <form action="" method="post">
 
-                        <img src="<?php echo $imm.$event['image']?>" width="150" height="150">
+                     
 
                         <input type="hidden" value="<?php echo $event['activityID']?>" name="register22">
 
 
                     <h3 class="product-title event-name"><?php echo $event['a_name']?></h3>
-                    <h5 class="sizes event-date">Event Date: <strong><?php echo $event['a_date']?></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Ages: <strong><?php echo $event['min_age']?>+</strong>
+                    <h5 class="sizes event-date">Event Date: <strong><?php echo str_replace('-','/',substr($event['a_date'],0,10));?></strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Ages: <strong><?php echo $event['min_age']?>+</strong>
                     </h5>
                     <p class="product-description event-description"><?php echo $event['description']?></p>
                     <h4 class="price event-price">Event Price: <span><?php echo $event['price']?>$</span></h4>
@@ -105,7 +105,7 @@ $registeredEvents=sql_getRegisteredEventsForUser();
                             if ($registeredEvent['actID']==$event['activityID'])
                             {
 
-                                echo '<button class="event-button" name="register" type="submit" value="<?php echo $event[\'activityID\']?> " disabled>Register</button>';
+                                echo '<button class="event-button event-button-registered" name="register" type="submit" value="<?php echo $event[\'activityID\']?> " disabled>Already Registered!</button>';
                                 $flag=1;
                             }
 

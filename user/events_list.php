@@ -13,6 +13,9 @@ $userEvents=sql_getRegisteredEventsForUser2();
 
 ?>
 <div class="row">
+    <div class="col-xs-12 text-center">
+        <h2>Registered Events <?echo $_SESSION['userID']?></h2>
+    </div>
     <?php 
         #for each event get all necesarry data
         foreach( $userEvents as $event):
@@ -33,13 +36,13 @@ $userEvents=sql_getRegisteredEventsForUser2();
 
         ?>
         <!--Event Item-->
-        <div class="col-lg-3 col-md-4 col-xs-2 event-item">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 event-item">
             <h3 class="event-name text-center"><?php echo $e_name ?></h3>
 
             <h4 class="event-date text-center"><?php echo $date?></h4>
 
 
-            <img class="event-img center-block" src="<?php echo $imm.$e_img?>" width="150" height="150"/>
+            <img class="event-img center-block" src="<?php echo $imm.$e_img?>" width="200" height="150"/>
             <div class="event-buttons text-center">
                 <form action="" method="post">
 
