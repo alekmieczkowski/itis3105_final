@@ -48,6 +48,22 @@ $updates[$col_names[0]] = $row[$col_names[0]];
 <!--Insert Navbar-->
 <?php include("../navbar.php");?>
 
+<style>
+    .submit-button{
+        position:relative;
+        margin:auto;
+        margin-bottom:20px;
+        padding:10px;
+        border: 4px solid #eba123;
+        border-radius:6px;
+        background-color:#ffca68;
+        font-size:20px;
+    }
+
+    .submit-button:hover{
+        background-color:#eba123;
+    }
+</style>
 
 <div class="container-fluid">
     <div class="row row-top">
@@ -97,11 +113,12 @@ $updates[$col_names[0]] = $row[$col_names[0]];
                 }
                 echo '</div>';
                 ?>
-
-            <input type="submit"  class="submit-button" name="edit" value="Update">
-            <input type="hidden"  name="row" value="<?php echo htmlentities(serialize($row));?>">
-            <input type="hidden"  name="col_names" value="<?php echo htmlentities(serialize($col_names));?>">
-            <input type="hidden"  name="table_name" value="<?php echo $table_name?>">
+            <div class="col-md-6 col-xs-12">
+                <input type="submit"  class="submit-button" name="edit" value="Update">
+                <input type="hidden"  name="row" value="<?php echo htmlentities(serialize($row));?>">
+                <input type="hidden"  name="col_names" value="<?php echo htmlentities(serialize($col_names));?>">
+                <input type="hidden"  name="table_name" value="<?php echo $table_name?>">
+            </div>
 
         </form>
     </div>

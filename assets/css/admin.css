@@ -145,3 +145,28 @@ tr {
     border-radius: 6px;
     color:white;
 }
+input[type="checkbox"] {
+    display:none;
+  
+  }
+  input[type="checkbox"] + label {
+  
+    color:#ffca68;
+    font-size:26px;
+    margin-left:-100px;
+    margin-bottom:10px;
+  }
+  input[type="checkbox"][name="isAdmin"] {
+    border: 2px solid #eba123;
+    border-radius: 4px;
+    display:inline-block;
+    width:26px;
+    height:26px;
+    margin:-1px 6px 0 0;
+    vertical-align:middle;
+    background:url("../img/checkbox.gif") no-repeat;
+    cursor:pointer;
+  }
+  input[type="checkbox"][name="isAdmin"]:checked{
+    background:url("../img/checkbox-checked.gif") center no-repeat;
+  }
