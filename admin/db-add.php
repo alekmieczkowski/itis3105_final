@@ -8,7 +8,6 @@ include("../header.php");
 
 $id = $_GET['id'];
 
-echo $id;
 
 #if data submitted
 if(isset($_POST['add'])){

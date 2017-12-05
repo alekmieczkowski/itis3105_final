@@ -25,8 +25,8 @@ else if($current_dir == "admin"){
 
 <footer class="footer-distributed">
         <div class="row">
-            <div class="col-md-2 hidden-sm"> </div>
-			<div class="col-md-3 text-center footer-left">
+            <div class="col-md-4 hidden-sm"> </div>
+			<div class="col-md-4 text-center footer-left">
 
                 <h3>Connect with US!</h3>
                 
@@ -43,19 +43,7 @@ else if($current_dir == "admin"){
 
 			</div>
 
-			<div class="col-md-6 footer-right">
-                <form action="#" method="post">
-				<p style="font-size: 26px; margin-top:0px;">Contact Us</p>
-
-				
-
-					<input type="email" name="email" placeholder="Email" />
-					<textarea name="message" placeholder="Message"></textarea>
-					<button>Send</button>
-
-				</form>
-
-			</div>
+		
         </div>
 		</footer>
 
