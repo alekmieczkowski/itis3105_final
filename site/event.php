@@ -17,6 +17,7 @@ foreach($event as $ev){
     $e_description = $ev['description'];
     $e_price = $ev['price'];
     $e_age = $ev['min_age'];
+    $e_loc = $ev['location'];
 }
 
 ?>
@@ -51,12 +52,22 @@ foreach($event as $ev){
             </div>
 </div>
 
+
+<?php
+#maps API
+$url = "https://www.google.com/maps/embed/v1/view";
+
+$loc = $url.'?center='.$e_loc;
+
+
+$loc.='&zoom=18&key=AIzaSyBii8MRBfwNdlH5E_MgtAtBCgGOy_g8h6g';
+
+?>
 <iframe
-  width="600"
+  width="900"
   height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBii8MRBfwNdlH5E_MgtAtBCgGOy_g8h6g
-    &q=Space+Needle,Seattle+WA" allowfullscreen>
+  frameborder="0" style="border:0" class="center-block text-center"
+  src=<?php echo $loc?> allowfullscreen>
 </iframe>
 
 
