@@ -51,5 +51,15 @@ foreach($event as $ev){
             </div>
 </div>
 
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBii8MRBfwNdlH5E_MgtAtBCgGOy_g8h6g
+    &q=Space+Needle,Seattle+WA" allowfullscreen>
+</iframe>
+
+
+
 <!--include Footer-->
 <?php require_once ("../footer.php");?>
